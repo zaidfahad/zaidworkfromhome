@@ -1,0 +1,22 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+namespace DigisensePlatformAPIs.Models
+{
+    public class Geofence
+    {
+        public string name { get; set; }
+        public List<points> points { get; set; }
+    }
+        public class points
+     {
+        public double longitude { get; set; }
+        public double latitude { get; set; }
+       
+    }
+
+        
+
+}

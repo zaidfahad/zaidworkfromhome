@@ -1,0 +1,75 @@
+D:\ZaidAhmad\github\DigisensePlatformAPIs\DigisensePlatformAPIs\bin\roslyn\csc.exe
+D:\ZaidAhmad\github\DigisensePlatformAPIs\DigisensePlatformAPIs\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\ZaidAhmad\github\DigisensePlatformAPIs\DigisensePlatformAPIs\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\ZaidAhmad\github\DigisensePlatformAPIs\DigisensePlatformAPIs\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\ZaidAhmad\github\DigisensePlatformAPIs\DigisensePlatformAPIs\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\ZaidAhmad\github\DigisensePlatformAPIs\DigisensePlatformAPIs\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\ZaidAhmad\github\DigisensePlatformAPIs\DigisensePlatformAPIs\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\ZaidAhmad\github\DigisensePlatformAPIs\DigisensePlatformAPIs\bin\roslyn\System.Collections.Immutable.dll
+D:\ZaidAhmad\github\DigisensePlatformAPIs\DigisensePlatformAPIs\bin\roslyn\System.Reflection.Metadata.dll
+D:\ZaidAhmad\github\DigisensePlatformAPIs\DigisensePlatformAPIs\bin\roslyn\vbc.exe
+D:\ZaidAhmad\github\DigisensePlatformAPIs\DigisensePlatformAPIs\bin\roslyn\VBCSCompiler.exe
+D:\ZaidAhmad\github\DigisensePlatformAPIs\DigisensePlatformAPIs\bin\roslyn\VBCSCompiler.exe.config
+D:\ZaidAhmad\github\DigisensePlatformAPIs\DigisensePlatformAPIs\bin\DigisensePlatformAPIs.dll.config
+D:\ZaidAhmad\github\DigisensePlatformAPIs\DigisensePlatformAPIs\bin\DigisensePlatformAPIs.dll
+D:\ZaidAhmad\github\DigisensePlatformAPIs\DigisensePlatformAPIs\bin\DigisensePlatformAPIs.pdb
+D:\ZaidAhmad\github\DigisensePlatformAPIs\DigisensePlatformAPIs\obj\Debug\DigisensePlatformAPIs.dll
+D:\ZaidAhmad\github\DigisensePlatformAPIs\DigisensePlatformAPIs\obj\Debug\DigisensePlatformAPIs.pdb
+D:\ZaidAhmad\github\DigisensePlatformAPIs\DigisensePlatformAPIs\obj\Debug\DigisensePlatformAPIs.csprojResolveAssemblyReference.cache
+D:\ZaidAhmad\gitnew\DigisensePlatformAPIs\DigisensePlatformAPIs\bin\roslyn\csc.exe
+D:\ZaidAhmad\gitnew\DigisensePlatformAPIs\DigisensePlatformAPIs\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\ZaidAhmad\gitnew\DigisensePlatformAPIs\DigisensePlatformAPIs\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\ZaidAhmad\gitnew\DigisensePlatformAPIs\DigisensePlatformAPIs\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\ZaidAhmad\gitnew\DigisensePlatformAPIs\DigisensePlatformAPIs\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\ZaidAhmad\gitnew\DigisensePlatformAPIs\DigisensePlatformAPIs\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\ZaidAhmad\gitnew\DigisensePlatformAPIs\DigisensePlatformAPIs\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\ZaidAhmad\gitnew\DigisensePlatformAPIs\DigisensePlatformAPIs\bin\roslyn\System.Collections.Immutable.dll
+D:\ZaidAhmad\gitnew\DigisensePlatformAPIs\DigisensePlatformAPIs\bin\roslyn\System.Reflection.Metadata.dll
+D:\ZaidAhmad\gitnew\DigisensePlatformAPIs\DigisensePlatformAPIs\bin\roslyn\vbc.exe
+D:\ZaidAhmad\gitnew\DigisensePlatformAPIs\DigisensePlatformAPIs\bin\roslyn\VBCSCompiler.exe
+D:\ZaidAhmad\gitnew\DigisensePlatformAPIs\DigisensePlatformAPIs\bin\roslyn\VBCSCompiler.exe.config
+D:\ZaidAhmad\gitnew\DigisensePlatformAPIs\DigisensePlatformAPIs\bin\DigisensePlatformAPIs.dll.config
+D:\ZaidAhmad\gitnew\DigisensePlatformAPIs\DigisensePlatformAPIs\bin\DigisensePlatformAPIs.dll
+D:\ZaidAhmad\gitnew\DigisensePlatformAPIs\DigisensePlatformAPIs\bin\DigisensePlatformAPIs.pdb
+D:\ZaidAhmad\gitnew\DigisensePlatformAPIs\DigisensePlatformAPIs\obj\Debug\DigisensePlatformAPIs.csprojResolveAssemblyReference.cache
+D:\ZaidAhmad\gitnew\DigisensePlatformAPIs\DigisensePlatformAPIs\obj\Debug\DigisensePlatformAPIs.dll
+D:\ZaidAhmad\gitnew\DigisensePlatformAPIs\DigisensePlatformAPIs\obj\Debug\DigisensePlatformAPIs.pdb
+D:\DigisensePlatformAPIs\DigisensePlatformAPIs\bin\roslyn\csc.exe
+D:\DigisensePlatformAPIs\DigisensePlatformAPIs\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\DigisensePlatformAPIs\DigisensePlatformAPIs\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\DigisensePlatformAPIs\DigisensePlatformAPIs\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\DigisensePlatformAPIs\DigisensePlatformAPIs\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\DigisensePlatformAPIs\DigisensePlatformAPIs\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\DigisensePlatformAPIs\DigisensePlatformAPIs\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\DigisensePlatformAPIs\DigisensePlatformAPIs\bin\roslyn\System.Collections.Immutable.dll
+D:\DigisensePlatformAPIs\DigisensePlatformAPIs\bin\roslyn\System.Reflection.Metadata.dll
+D:\DigisensePlatformAPIs\DigisensePlatformAPIs\bin\roslyn\vbc.exe
+D:\DigisensePlatformAPIs\DigisensePlatformAPIs\bin\roslyn\VBCSCompiler.exe
+D:\DigisensePlatformAPIs\DigisensePlatformAPIs\bin\roslyn\VBCSCompiler.exe.config
+D:\DigisensePlatformAPIs\DigisensePlatformAPIs\bin\DigisensePlatformAPIs.dll.config
+D:\DigisensePlatformAPIs\DigisensePlatformAPIs\bin\DigisensePlatformAPIs.dll
+D:\DigisensePlatformAPIs\DigisensePlatformAPIs\bin\DigisensePlatformAPIs.pdb
+D:\DigisensePlatformAPIs\DigisensePlatformAPIs\obj\Debug\DigisensePlatformAPIs.csprojResolveAssemblyReference.cache
+D:\DigisensePlatformAPIs\DigisensePlatformAPIs\obj\Debug\DigisensePlatformAPIs.dll
+D:\DigisensePlatformAPIs\DigisensePlatformAPIs\obj\Debug\DigisensePlatformAPIs.pdb
+C:\Users\zk0c68738\Documents\Visual Studio 2015\Projects\DigisensePlatformAPIs\DigisensePlatformAPIs\bin\roslyn\csc.exe
+C:\Users\zk0c68738\Documents\Visual Studio 2015\Projects\DigisensePlatformAPIs\DigisensePlatformAPIs\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\zk0c68738\Documents\Visual Studio 2015\Projects\DigisensePlatformAPIs\DigisensePlatformAPIs\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\zk0c68738\Documents\Visual Studio 2015\Projects\DigisensePlatformAPIs\DigisensePlatformAPIs\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\zk0c68738\Documents\Visual Studio 2015\Projects\DigisensePlatformAPIs\DigisensePlatformAPIs\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\zk0c68738\Documents\Visual Studio 2015\Projects\DigisensePlatformAPIs\DigisensePlatformAPIs\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\zk0c68738\Documents\Visual Studio 2015\Projects\DigisensePlatformAPIs\DigisensePlatformAPIs\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\zk0c68738\Documents\Visual Studio 2015\Projects\DigisensePlatformAPIs\DigisensePlatformAPIs\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\zk0c68738\Documents\Visual Studio 2015\Projects\DigisensePlatformAPIs\DigisensePlatformAPIs\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\zk0c68738\Documents\Visual Studio 2015\Projects\DigisensePlatformAPIs\DigisensePlatformAPIs\bin\roslyn\vbc.exe
+C:\Users\zk0c68738\Documents\Visual Studio 2015\Projects\DigisensePlatformAPIs\DigisensePlatformAPIs\bin\roslyn\VBCSCompiler.exe
+C:\Users\zk0c68738\Documents\Visual Studio 2015\Projects\DigisensePlatformAPIs\DigisensePlatformAPIs\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\zk0c68738\Documents\Visual Studio 2015\Projects\DigisensePlatformAPIs\DigisensePlatformAPIs\bin\DigisensePlatformAPIs.dll.config
+C:\Users\zk0c68738\Documents\Visual Studio 2015\Projects\DigisensePlatformAPIs\DigisensePlatformAPIs\bin\DigisensePlatformAPIs.dll
+C:\Users\zk0c68738\Documents\Visual Studio 2015\Projects\DigisensePlatformAPIs\DigisensePlatformAPIs\bin\DigisensePlatformAPIs.pdb
+C:\Users\zk0c68738\Documents\Visual Studio 2015\Projects\DigisensePlatformAPIs\DigisensePlatformAPIs\bin\System.Web.Cors.dll
+C:\Users\zk0c68738\Documents\Visual Studio 2015\Projects\DigisensePlatformAPIs\DigisensePlatformAPIs\bin\System.Web.Http.Cors.dll
+C:\Users\zk0c68738\Documents\Visual Studio 2015\Projects\DigisensePlatformAPIs\DigisensePlatformAPIs\bin\System.Web.Http.Cors.xml
+C:\Users\zk0c68738\Documents\Visual Studio 2015\Projects\DigisensePlatformAPIs\DigisensePlatformAPIs\obj\Debug\DigisensePlatformAPIs.dll
+C:\Users\zk0c68738\Documents\Visual Studio 2015\Projects\DigisensePlatformAPIs\DigisensePlatformAPIs\obj\Debug\DigisensePlatformAPIs.pdb
+C:\Users\zk0c68738\Documents\Visual Studio 2015\Projects\DigisensePlatformAPIs\DigisensePlatformAPIs\obj\Debug\DigisensePlatformAPIs.csprojResolveAssemblyReference.cache
