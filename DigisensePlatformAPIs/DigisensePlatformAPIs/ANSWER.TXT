@@ -1,0 +1,196 @@
+1)1 -- SRS - Waterfall
+2)1 -- Project Lead/Project Manager - Project Sign-Off
+3)5 -- Defect Management and Prevention Procedure, project identifies
+4)2 -- Decision Analysis and Resolution Procedure - Waterfall, which of the following technique
+5)1 -- Software configuration management activities involve change request management
+6)4 -- Modified waterfall model methedology of BMS, which of the following testing work products
+7)3 -- BMS, project management review meeting outcome would be documented and tracked
+8)1 -- any role player from project team can identify risk of the projects
+9)4 -- Avg turnaround time and adherence to turnaround time 
+10)5 -- Waterfall model of BMS, tasks to be performed during [HLD]
+11)3 -- BMS after the inspection/ review 
+12)1 -- casual analysis tools used in Defect management and prevention 
+13)5 -- Defects identified within the work products
+14)4 -- Waterfall methodology, which of the following are the outputs for coding phase
+15)3 -- BMS, best descibes review process
+16)2 -- metrics definition of BMS, Effort variance 
+17)5 -- BMS, objective of project initiation phase
+18)4 -- role of Moderator during Inspection process
+19)5 -- BMS, risk monitoring and control
+20)5 -- which of the statements are true
+----------------------------------------------------------
+----6TO 8----
+1)1 -- SRS - Waterfall
+2)1 -- Project Lead/Project Manager - Project Sign-Off
+3)5 -- Defect Management and Prevention Procedure
+4)2 -- Risk Tracking and management
+5)2 -- Software Configuration Management Activities
+6)1 -- Configuration Management, a BASELINE
+7)5 -- BMS Waterfall Methodology, developer/ author
+8)2 -- Inspection process of BMS, Author identifies Recorder
+9)1 -- Identify risk for the project
+10)2 -- Modified waterfall model methedology of BMS
+11)4 -- Avg turnaround time and adherence to turnaround time
+12)1 -- Objective of Inspection and review
+13)3 -- BMS after the inspection/ review 
+14)3 -- Production Support activity after SDLC
+15)1 -- Modified waterfall model methedology of BMS, outputs
+16)3 -- In case of inspection, ____
+17)4 -- Defects Log Template
+18)5 -- Detailed Modelling Phase of OOAD
+19)2 -- Traceability Matrix
+20)4 -- BMS, when should the project risk to be identified
+---------------------------------------------------------------------------------------9TO 129-12(ravali)----
+1)1 -- SRS - Waterfall
+2)1 -- Testing Methodology of BMS
+3)1 -- Inspection and review process in BMS
+4)2 -- Risk Tracking and management
+5)4 -- Waterfall Methodology, testing
+6)1 -- metrics process of BMS
+7)1 -- Configuration Management, a BASELINE
+8)4 -- Risk Management Procedure of BMS
+9)5 -- Intent of Review meeting
+10)1 -- Waterfall Methodology of BMS, user requirement
+11)2 -- moderator verifies the adequacy
+12)5 -- Tech Mahindra Process Capabilities
+13)4 -- Avg turnaround time and adherence to turnaround time
+14)1 -- Configuration Management Process, ___
+15)3 -- BMS after the inspection/ review 
+16)1 -- Lifecycle Methodologies of BMS
+17)5 -- Defect classification list of BMS
+18)4 -- Cost of Quality 
+19)4 -- Defects Log Template
+20)5 -- BMS, objective of project initiation phase
+------------------------------------------------------------------------------------
+swetha
+1)4 -- TechM, metrics collection and reporting
+2)1 -- Testing Methodology of BMS, Test preparation phase
+3)5 -- Defect Management and Prevention Procedure
+4)2 -- Decision Analysis and Resolution Procedure - Waterfall
+5)1 -- defect prevention process ensures
+6)4 -- Waterfall methodology of BMS, Testing work products
+7)4 -- BMS, Project Closure
+8)2 -- BMS, what template is used to trace the user requirement
+9)4 -- Metrics Process, upper control limit and lower control limit 
+10)5 -- Waterfall model of BMS, tasks to be performed during [HLD]
+11)3 -- BMS after the inspection/ review 
+12)1 -- Modified waterfall model methedology of BMS, outputs
+13)2 -- BMS, once new risk is identified
+14)3 -- frequency of conduction project intermediate closure or introinspection
+15)5 -- defects identified within the work products
+16)5 -- waterfall methodology of BMS, who is reponsible for baselining of code
+17)3 -- In case of inspection, ____
+18)5 -- Defect prevention and management
+19)4 -- Defect log template
+20)1 -- Physical Configuration Audit
+-------------------------------------------------
+shilaja
+1)1 -- components of project plan document/ template in BMS
+2)1 -- Configuration management means: mechanism or process
+3)1 -- residual risk to be re-assess & calculate
+4)2 -- Software configuration management activities involve change request management
+5)1 -- any member from project team or the customer
+6)5 -- BMS waterfall methodology, developer/author
+7)4 -- Risk management procedure of BMS, Action Owner and PLanned completion
+8)1 -- any role player from project team can identify risk of the projects
+9)4 -- retrospective analysis during project closure
+10)2 -- BMS, what template is used to trace the user requirement
+11)1 -- waterfall methodology, which of the following  is an entry criteria for SRS
+12)4 -- Avg turnaround time and adherence to turnaround time 
+13)1 -- objective of inspection and review
+14)3 -- BMS after the inspection/ review 
+15)1 -- casual analysis tools Defect Management and Prevention
+16)5 -- OOAD methodology, class integration
+17)5 -- waterfall methodology of BMS, who is reponsible for baselining of code
+18)1 -- Risk management is mapped under section
+19)2 -- BMS, overall project risk calculated on the scale of 
+20)3 -- BMS, best describes review process
+-----------------------------------------------------------
+gattu
+1)1 -- components of project plan document/ template in BMS
+2)1 -- residual risk to be re-assess & calculate
+3)1 -- Objective of Inspection and review
+4)1 -- 24x7 Production Support project
+5)1 -- Software configuration management activities involve change request management
+6)4 -- Risk management procedure of BMS, Action Owner and PLanned completion
+7)1 -- any role player from project team can identify risk of the projects
+8)2 -- moderator verifies the adequacy of the follow-up
+9)4 -- Avg turnaround time and adherence to turnaround time
+10)2 -- waterfall methodology of BMS, which of the following templates are used to document the customer requirement
+11)4 -- waterfall methodology procedure, which of the following documents are inputs for detailed design
+12)1 -- waterfall methodology, which of the following  is an entry criteria for SRS
+13)1 -- which of the following are outputs of user requirement phase 
+14)3 -- frequency of conduction project intermediate closure or introinspection
+15)4 -- Cost of Quality
+16)4 -- Defect log template
+17)3 -- bms, Risk management is mapped under section
+18)3 -- metrics reports for ongoing project
+19)2 -- BMS, overall project risk shall be calculated
+20)5 -- which of the statements are true
+-------------------------------------------------------
+sharath
+1)1 -- components of project plan document/ template in BMS
+2)1 -- Inspection Activity, Author dispatches the inspection item and relevent supporting document 
+3)5 -- Version History Section of document 
+4)1 -- any member from project team or the customer
+5)3 -- Inspection and review process of BMS, work products
+6)1 -- BMS, PM is responsible in a project for Risk Management Planning
+7)2 -- modified waterfall methodology procedure of BMS, during the warranty phase
+8)2 -- BMS, what template is used to trace the user requirement
+9)1 -- waterfall methodology, which of the following  is an entry criteria for SRS
+10)2 -- moderator verifies the adequacy
+11)4 -- metrics process, upper control limit and lower control limit are found
+12)4 -- waterfall methodology, which of the following  is an entry criteria for warranty phase
+13)1 -- which of the following are outputs of user requirement phase 
+14)3 -- process of comparing metrics with standards in industry/domain
+15)5 -- Defect prevention and management
+16)4 -- Cost of Quality
+17)2 -- metrics definition of BMS, Effort variance 
+18)5 -- BMS, objective of project initiation phase
+19)4 -- role of moderator during inspection process
+20)4 -- inspection is carried out by ____
+-------
+nipuna
+1)1 -- SRS - Waterfall
+2)1 -- Testing Methodology of BMS, Test preparation phase
+3)D -- Defect Management and Prevention Procedure
+4)4 -- waterfall methodology, testing type that can be mapped with User Requirements
+5)1 -- Software configuration management activities involve change request management
+6)4 -- Risk management procedure of BMS, Action Owner and PLanned completion
+7)3 -- BMS, project management review meeting outcome would be documented and tracked
+8)2 -- modified waterfall methodology procedure of BMS, during the warranty phase
+9)1 -- waterfall methodology, which of the following  is an entry criteria for SRS
+10)1 -- Configuration management process, _____
+11)4 -- waterfall methodology procedure, which of the following documents are inputs for detailed design
+12)5 -- Waterfall model of BMS, tasks to be performed during [HLD]
+13)4 -- BMS, which of the following are entry criteria for initiating project closure
+14)5 -- Project Closure process flow, following are the necessary steps for project closure
+15)1 -- lifecycle methodologies of BMS, warranty phase is applicable 
+16)3 -- frequency of conduction project intermediate closure or introinspection
+17)4 -- Waterfall methodology, which of the following are the outputs for coding phase
+18)5 -- waterfall methodology of BMS, who is reponsible for baselining of code
+19)3 -- BMS, best describes review process
+20)2 -- metrics definition of BMS, Effort variance
+
+---------------------
+shilaja2
+1)1 -- components of project plan document/ template in BMS
+2)1 -- Inspection Activity, Author dispatches the inspection item and relevent supporting document
+3)4 -- waterfall methodology, testing type that can be mapped with User Requirements
+4)2 -- Inspection process of BMS, Author identifies Recorder
+5)1 -- any role player from project team can identify risk of the projects
+6)1 -- waterfall methodology, which of the following  is an entry criteria for SRS
+7)2 -- moderator verifies the adequacy
+8)1 -- Configuration management process, _____
+9)4 -- waterfall methodology procedure, which of the following documents are inputs for detailed design
+10)3 -- Production Support activity after SDLC
+11)4 -- waterfall methodology, which of the following  is an entry criteria for warranty phase
+12)1 -- which of the following are outputs of user requirement phase
+13)5 -- Defects identified within the work products
+14)4 -- Waterfall methodology, which of the following are the outputs for coding phase
+15)1 -- BMS, who is responsible for size & effort esitimation and scheduling
+16)3 -- ____________, has to close the defects identified
+17)3 -- Risk management is mapped under section
+18)5 -- BMS, objective of project initiation phase
+19)4 -- Moderator during Inspection process
+20)4 -- BMS, inspection is carried out by ______
