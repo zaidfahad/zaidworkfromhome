@@ -68,7 +68,7 @@ namespace DigisensePlatformAPIs.Controllers
                     else
                     {
                         //Need to ask to Nilesh sir about the status code 
-                        return Request.CreateResponse(HttpStatusCode.BadRequest, BLUtilities.Common_BL.Response("Incorrect request parameters."));
+                        return Request.CreateResponse(HttpStatusCode.OK, BLUtilities.Common_BL.Response("Incorrect request parameters."));
                       
                     }
                 }

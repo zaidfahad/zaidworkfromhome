@@ -8,9 +8,17 @@ namespace DigisensePlatformAPIs.Models
 {
     public class Expense
     {
+        [Required]
         public string label { get; set; }
+
+        [Required]
         public string value { get; set; }
-        public DateTime date { get; set; }
+
+        [Required]
+        [RegularExpression(@"^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$", ErrorMessage = "date is not the correct format. Should be yyyy-MM-dd hh:mm:ss")]
+        public string date { get; set; }
+
+        [Required]
         public string createdBy { get; set; }
     }
 

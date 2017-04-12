@@ -351,10 +351,6 @@ namespace DigisensePlatformAPIs.Controllers
             System.Net.Http.Headers.HttpRequestHeaders headers = this.Request.Headers;
             string token = string.Empty;
             string apikey = string.Empty;
-
-            string labels = objDriverAttributeInfo.label.ToLower();
-            DateTime date = objDriverAttributeInfo.date;
-            string values = objDriverAttributeInfo.value;
             try
             {
                 if (headers.Contains("token"))
@@ -364,10 +360,24 @@ namespace DigisensePlatformAPIs.Controllers
                         token = headers.GetValues("token").First();
                     }
                 }
-
-                 
+                if (objDriverAttributeInfo == null)
+                {
+                    return Request.CreateResponse(HttpStatusCode.BadRequest, BLUtilities.Common_BL.Response("Required parameters are missing"));
+                }
                 if (ModelState.IsValid)
                 {
+                    string labels = objDriverAttributeInfo.label.ToLower();
+                    var check= objDriverAttributeInfo.value.ValidateDecimalValue();
+                    string values = string.Empty;
+                    if (check.Item1)
+                    {
+                        values = check.Item2;
+                    }
+                    else
+                    {
+                        return Request.CreateResponse(HttpStatusCode.OK, BLUtilities.Common_BL.Response(check.Item2));
+                    }
+                    DateTime date = Convert.ToDateTime(objDriverAttributeInfo.date);
                     if (token != "")
                     {
                         bool validateToken = false;

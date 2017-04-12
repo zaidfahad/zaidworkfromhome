@@ -108,7 +108,7 @@ namespace DigisensePlatformAPIs.Utilities
         public static string ConvertSecondsToTime(this int seconds)
         {
             TimeSpan span = TimeSpan.FromSeconds(seconds);
-             string label = span.ToString(@"hh\:mm\:ss");
+            string label = span.ToString(@"hh\:mm\:ss");
             //TimeSpan t = TimeSpan.FromSeconds(Convert.ToDouble(seconds));
 
             //if (t.Days > 0)
@@ -171,6 +171,124 @@ namespace DigisensePlatformAPIs.Utilities
                 // If exception is caught, then it is not a base64 encoded string
                 return false;
             }
+        }
+
+        public static Tuple<bool,string> ValidateDecimalValue(this string value)
+        {
+            Tuple<bool, string> result;
+            decimal val = 0;
+            try
+            {
+               bool canConvert = decimal.TryParse(value, out val);
+                if (canConvert)
+                {
+                    result = new Tuple<bool, string>(true, value);
+                }
+                else
+                {
+                    result = new Tuple<bool, string>(false, value + " value filed is invalid decimal");
+                }
+            }
+            catch (Exception ex)
+            {
+                result = new Tuple<bool, string>(false, ex.Message);
+            }
+            return result;
+        }
+
+        /*
+        public static Tuple<bool, string> LongitudeLatitudeValidation(this string logitude,string latitude)
+        {
+            Tuple<bool, string> result=null;
+            try
+            {
+                var check= DecimalValueCheck(logitude);
+                if (check)
+                {
+                    check = DecimalValueCheck(latitude);
+                    if (!check)
+                    {
+                        result = new Tuple<bool, string>(false, latitude + " latitude value is invalid");
+                    }
+                    else
+                    {
+                        result = new Tuple<bool, string>(true, "success");
+
+                    }
+                }
+                else
+                {
+                    result = new Tuple<bool, string>(false, logitude + " longitude value is invalid");
+                }
+            }
+            catch (Exception ex)
+            {
+                result = new Tuple<bool, string>(false, ex.Message);
+            }
+            return result;
+        }
+        */
+
+        public static Tuple<bool, string> LongitudeLatitudeValidation(this string logitude, string latitude)
+        {
+            Tuple<bool, string> result = null;
+            try
+            {
+                var latExp = @"^(\+|-)?(?:90(?:(?:\.0{1,6})?)|(?:[0-9]|[1-8][0-9])(?:(?:\.[0-9]{1,6})?))$";
+                var lngExp = @"^(\+|-)?(?:180(?:(?:\.0{1,6})?)|(?:[0-9]|[1-9][0-9]|1[0-7][0-9])(?:(?:\.[0-9]{1,6})?))$";
+                Regex reg = new Regex(lngExp);
+                if (!reg.IsMatch(logitude))
+                {
+                    result = new Tuple<bool, string>(false, logitude + " logitude value is invalid");
+                }
+                else
+                {
+                     reg = new Regex(latExp);
+                    if (!reg.IsMatch(latitude))
+                    {
+                        result = new Tuple<bool, string>(false, latitude + " latitude value is invalid");
+                    }
+                    else
+                    {
+                        result = new Tuple<bool, string>(true, "correct");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                result = new Tuple<bool, string>(false, ex.Message);
+            }
+            return result;
+        }
+        public static bool DecimalValueCheck(string value)
+        {
+
+            try
+            {
+                var valuesplit = value.Split('.');
+                int _value;
+                if (valuesplit.Length == 2)
+                {
+
+                    if (int.TryParse(valuesplit[0], out _value)&& int.TryParse(valuesplit[1], out _value))
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch(Exception)
+            {
+                return false;
+            }
+            
         }
     }
 }

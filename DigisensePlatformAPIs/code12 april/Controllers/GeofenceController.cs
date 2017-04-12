@@ -137,13 +137,18 @@ namespace DigisensePlatformAPIs.Controllers
                     }
                 }
 
-
+                if (geofence == null)
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, BLUtilities.Common_BL.Response("Invalid parameters"));
+                }
 
                 if (token != "")
                 {
                     bool validateToken = false;
                     string username = string.Empty;
                     string userid = string.Empty;
+                    string errorMessagecheckpoints = "";
+                    bool _checkPoints = false;
                     DataTable dtTkenData = DBUtilities.LoginRepository.TokenValidation(token, 5);
                     if (dtTkenData.Rows.Count > 0)
                     {
@@ -184,15 +189,32 @@ namespace DigisensePlatformAPIs.Controllers
 
                         if (dataTable.Rows.Count <= 0)
                         {
+                            //Need to ask to Nilesh Sir if Geofence is an array then what to do 
                             if (geofence[0].points.Count >= 3)
                             {
                                 for (int i = 0; i < geofence[0].points.Count; i++)
                                 {
                                     geofencename = geofence[0].name;
-
+                                    #region GeoFence Points Validation
+                                    var checkPoints = Convert.ToString(geofence[0].points[i].longitude).LongitudeLatitudeValidation(Convert.ToString(geofence[0].points[i].latitude));
+                                    if (checkPoints.Item1)
+                                    {
+                                        _checkPoints = true;
+                                    }
+                                    else
+                                    {
+                                        _checkPoints = false;
+                                        errorMessagecheckpoints = checkPoints.Item2;
+                                        break;
+                                    }
+                                    #endregion
                                     geofenceboundary = geofenceboundary + geofence[0].points[i].latitude.ToString() + " " + geofence[0].points[i].longitude.ToString() + ",";
                                     geoboundarydata = geoboundarydata + geofence[0].points[i].latitude.ToString() + "," + geofence[0].points[i].longitude.ToString() + ",";
 
+                                }
+                                if (!_checkPoints)
+                                {
+                                    return Request.CreateResponse(HttpStatusCode.OK, BLUtilities.Common_BL.Response(errorMessagecheckpoints));
                                 }
                                 geofenceboundary = geofenceboundary + geofence[0].points[0].latitude.ToString() + " " + geofence[0].points[0].longitude.ToString() + "))";
                                 geoboundarydata = geoboundarydata.TrimEnd(',');
@@ -371,6 +393,7 @@ namespace DigisensePlatformAPIs.Controllers
             string apikey = string.Empty;
             try
             {
+            
                 if (headers.Contains("token"))
                 {
                     if (headers.GetValues("token") != null && Convert.ToString(headers.GetValues("token")) != "")
@@ -386,14 +409,19 @@ namespace DigisensePlatformAPIs.Controllers
                     }
                 }
 
-
+                if (geofence == null)
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, BLUtilities.Common_BL.Response("Invalid parameters"));
+                }
 
                 if (token != "")
                 {
                     bool validateToken = false;
                     string username = string.Empty;
                     string userid = string.Empty;
-                    DataTable dtTkenData = DBUtilities.LoginRepository.TokenValidation(token, 5);
+                    string errorMessagecheckpoints = string.Empty;
+                    bool _checkPoints = false; 
+                     DataTable dtTkenData = DBUtilities.LoginRepository.TokenValidation(token, 5);
                     if (dtTkenData.Rows.Count > 0)
                     {
                         userid = Convert.ToString(dtTkenData.Rows[0]["_userid"]);
@@ -438,14 +466,30 @@ namespace DigisensePlatformAPIs.Controllers
                                 for (int i = 0; i < geofence.Count; i++)
                                 {
                                     geofencename = name;
-
+                                    #region GeoFence Points Validation
+                                    var checkPoints = Convert.ToString(geofence[i].longitude).LongitudeLatitudeValidation(Convert.ToString(geofence[i].latitude));
+                                    if (checkPoints.Item1)
+                                    {
+                                        _checkPoints = true;
+                                    }
+                                    else
+                                    {
+                                        _checkPoints = false;
+                                        errorMessagecheckpoints = checkPoints.Item2;
+                                        break;
+                                    }
+                                    #endregion
                                     geofenceboundary = geofenceboundary + geofence[i].latitude.ToString() + " " + geofence[i].longitude.ToString() + ",";
                                     geoboundarydata = geoboundarydata + geofence[i].latitude.ToString() + "," + geofence[i].longitude.ToString() + ",";
 
                                 }
                                 geofenceboundary = geofenceboundary + geofence[0].latitude.ToString() + " " + geofence[0].longitude.ToString() + "))";
                                 geoboundarydata = geoboundarydata.TrimEnd(',');
-
+                                //Points Validation
+                                if (!_checkPoints)
+                                {
+                                    return Request.CreateResponse(HttpStatusCode.OK, BLUtilities.Common_BL.Response(errorMessagecheckpoints));
+                                }
 
                                 if (ModelState.IsValid)
                                 {

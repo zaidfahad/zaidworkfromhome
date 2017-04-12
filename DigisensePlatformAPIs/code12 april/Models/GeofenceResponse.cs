@@ -13,7 +13,6 @@ namespace DigisensePlatformAPIs.Models
 
     public class GeofencePointsListResponse
     {
-         
         public   points  points { get; set; }
     }
 
