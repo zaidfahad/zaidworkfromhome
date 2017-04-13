@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="sqlconnectionstringCommercial-Web.config Connection String" description="sqlconnectionstringCommercial Connection String used in web.config by the application to access the database." defaultValue="Server=54.68.245.127;UserID=postgres;Password=satyam123$;Database=COMMERCIAL_5.4;Pooling=false" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="D:\\ZaidAhmad\\gitnew\\DigisensePlatformAPIs\\DigisensePlatformAPIs\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='sqlconnectionstringCommercial']/@connectionString" />
+  </parameter>
+  <parameter name="sqlconnectionstringFarm-Web.config Connection String" description="sqlconnectionstringFarm Connection String used in web.config by the application to access the database." defaultValue="Server=54.68.245.127;UserID=postgres;Password=satyam123$;Database=FARM_5.4;Pooling=false" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="D:\\ZaidAhmad\\gitnew\\DigisensePlatformAPIs\\DigisensePlatformAPIs\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='sqlconnectionstringFarm']/@connectionString" />
+  </parameter>
+  <parameter name="sqlconnectionstringMTBD-Web.config Connection String" description="sqlconnectionstringMTBD Connection String used in web.config by the application to access the database." defaultValue="Server=54.68.245.127;UserID=postgres;Password=satyam123$;Database=MTBD_5.4;Pooling=false" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="D:\\ZaidAhmad\\gitnew\\DigisensePlatformAPIs\\DigisensePlatformAPIs\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='sqlconnectionstringMTBD']/@connectionString" />
+  </parameter>
+  <parameter name="sqlconnectionstringCE-Web.config Connection String" description="sqlconnectionstringCE Connection String used in web.config by the application to access the database." defaultValue="Server=54.68.245.127;UserID=postgres;Password=satyam123$;Database=CONSTRUCTIONEQUIPMENT_5.4;Pooling=false" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="D:\\ZaidAhmad\\gitnew\\DigisensePlatformAPIs\\DigisensePlatformAPIs\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='sqlconnectionstringCE']/@connectionString" />
+  </parameter>
+  <parameter name="sqlconnectionstringCommon-Web.config Connection String" description="sqlconnectionstringCommon Connection String used in web.config by the application to access the database." defaultValue="Server=54.68.245.127;UserID=postgres;Password=satyam123$;Database=COMMON;Pooling=false" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="D:\\ZaidAhmad\\gitnew\\DigisensePlatformAPIs\\DigisensePlatformAPIs\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='sqlconnectionstringCommon']/@connectionString" />
+  </parameter>
+</parameters>
