@@ -1,0 +1,9 @@
+ALL  controller for expeses are made and sturcture are made i need to ask for the procediure
+
+
+till that time i need  to impement validation in the codes 
+
+
+Every thign is done fine with the giuven detail told by uma and swagger 
+
+I hope I will the best one INSHA ALLAH there will no one who can even stand infornt of me INSHA ALLAH
