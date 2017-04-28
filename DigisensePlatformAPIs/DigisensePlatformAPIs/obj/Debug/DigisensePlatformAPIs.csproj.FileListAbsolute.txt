@@ -72,4 +72,3 @@ C:\Users\zk0c68738\Documents\Visual Studio 2015\Projects\DigisensePlatformAPIs\D
 C:\Users\zk0c68738\Documents\Visual Studio 2015\Projects\DigisensePlatformAPIs\DigisensePlatformAPIs\bin\System.Web.Http.Cors.xml
 C:\Users\zk0c68738\Documents\Visual Studio 2015\Projects\DigisensePlatformAPIs\DigisensePlatformAPIs\obj\Debug\DigisensePlatformAPIs.dll
 C:\Users\zk0c68738\Documents\Visual Studio 2015\Projects\DigisensePlatformAPIs\DigisensePlatformAPIs\obj\Debug\DigisensePlatformAPIs.pdb
-C:\Users\zk0c68738\Documents\Visual Studio 2015\Projects\DigisensePlatformAPIs\DigisensePlatformAPIs\obj\Debug\DigisensePlatformAPIs.csprojResolveAssemblyReference.cache

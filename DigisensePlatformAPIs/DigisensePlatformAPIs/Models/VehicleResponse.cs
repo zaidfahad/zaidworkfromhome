@@ -204,7 +204,7 @@ namespace DigisensePlatformAPIs.Models
     }
     #endregion
 
-#region Vehicle Status
+    #region Vehicle Status
 
     public class VehicleStatusResponse
     {
@@ -288,6 +288,7 @@ namespace DigisensePlatformAPIs.Models
 
   
 #endregion
+
     #region vehicle Health
     public class VehicleHealthStatusResponse
     {  

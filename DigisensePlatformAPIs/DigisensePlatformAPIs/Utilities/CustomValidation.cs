@@ -1,9 +1,14 @@
-﻿using System;
+﻿using DigisensePlatformAPIs.Models;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text.RegularExpressions;
 using System.Web;
+using System.Web.Script.Serialization;
 
 namespace DigisensePlatformAPIs.Utilities
 {
@@ -155,6 +160,44 @@ namespace DigisensePlatformAPIs.Utilities
 
             return answer;
         }
+        public static string ConvertSecondsintoHHMMFormat(this double secs)
+        {
+            string answer = string.Empty;
+            try
+            {
+
+                TimeSpan t = TimeSpan.FromSeconds(secs);
+
+                if (t.Days > 0)
+                {
+                    answer = string.Format("{0:D2}day(s) {1:D2}h:{2:D2}m:{3:D2}s",
+                                   t.Days,
+                                   t.Hours,
+                                   t.Minutes,
+                                   t.Seconds
+                                 );
+                }
+                else
+                {
+
+                    answer = string.Format("{0:D2}h:{1:D2}m:{2:D2}s",
+                               t.Hours,
+                               t.Minutes,
+                               t.Seconds
+                             );
+
+                }
+
+            }
+
+            catch (Exception ex)
+            {
+
+            }
+
+
+            return answer;
+        }
 
         public static bool ValidateBaseString(this string str)
         {
@@ -173,13 +216,13 @@ namespace DigisensePlatformAPIs.Utilities
             }
         }
 
-        public static Tuple<bool,string> ValidateDecimalValue(this string value)
+        public static Tuple<bool, string> ValidateDecimalValue(this string value)
         {
             Tuple<bool, string> result;
             decimal val = 0;
             try
             {
-               bool canConvert = decimal.TryParse(value, out val);
+                bool canConvert = decimal.TryParse(value, out val);
                 if (canConvert)
                 {
                     result = new Tuple<bool, string>(true, value);
@@ -243,7 +286,7 @@ namespace DigisensePlatformAPIs.Utilities
                 }
                 else
                 {
-                     reg = new Regex(latExp);
+                    reg = new Regex(latExp);
                     if (!reg.IsMatch(latitude))
                     {
                         result = new Tuple<bool, string>(false, latitude + " latitude value is invalid");
@@ -270,7 +313,7 @@ namespace DigisensePlatformAPIs.Utilities
                 if (valuesplit.Length == 2)
                 {
 
-                    if (int.TryParse(valuesplit[0], out _value)&& int.TryParse(valuesplit[1], out _value))
+                    if (int.TryParse(valuesplit[0], out _value) && int.TryParse(valuesplit[1], out _value))
                     {
                         return true;
                     }
@@ -284,11 +327,67 @@ namespace DigisensePlatformAPIs.Utilities
                     return false;
                 }
             }
-            catch(Exception)
+            catch (Exception)
             {
                 return false;
             }
-            
+
         }
+
+        #region Fetch Address Base on Logitude and Latitude 
+        public static string FetchAddressByLongitudeLatitude(string logitude, string latitude)
+        {
+            string address = string.Empty;
+            try
+            {
+                string apiurl = "http://maps.google.com/maps/api/geocode/json?latlng=" + latitude + " ," + logitude + "&sensor=false";
+                HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(apiurl);
+                request.Method = "GET";
+                String json = String.Empty;
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                Stream dataStream = response.GetResponseStream();
+                StreamReader reader = new StreamReader(dataStream);
+                json = reader.ReadToEnd();
+                JavaScriptSerializer json_serializer = new JavaScriptSerializer();
+                LongitudeLatitudeResponse routes_list =
+                      JsonConvert.DeserializeObject<LongitudeLatitudeResponse>(json);
+                reader.Close();
+                dataStream.Close();
+                address = Convert.ToString(routes_list.results[0].formatted_address);
+            }
+            catch (Exception ex)
+            {
+                return address = "Not Found";
+            }
+            return address;
+        }
+
+        public static string FetchAddressByLongitudeLatitude(this string latlong)
+        {
+            string address = string.Empty;
+            try
+            {
+                string apiurl = "http://maps.google.com/maps/api/geocode/json?latlng=" +latlong+ "&sensor=false";
+                HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(apiurl);
+                request.Method = "GET";
+                String json = String.Empty;
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                Stream dataStream = response.GetResponseStream();
+                StreamReader reader = new StreamReader(dataStream);
+                json = reader.ReadToEnd();
+                JavaScriptSerializer json_serializer = new JavaScriptSerializer();
+                LongitudeLatitudeResponse routes_list =
+                      JsonConvert.DeserializeObject<LongitudeLatitudeResponse>(json);
+                reader.Close();
+                dataStream.Close();
+                address = Convert.ToString(routes_list.results[0].formatted_address);
+            }
+            catch (Exception ex)
+            {
+                return address = "Not Found";
+            }
+            return address;
+        }
+        #endregion
     }
 }

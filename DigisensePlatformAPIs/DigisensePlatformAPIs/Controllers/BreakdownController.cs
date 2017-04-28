@@ -14,6 +14,7 @@ namespace DigisensePlatformAPIs.Controllers
     public class BreakdownController : ApiController
     {
         private static readonly ILog Log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+        //Break Get Method not in used
         #region Break Down  Details  get we are not using now 5 april
         [HttpGet]
          [Route("api/breakDown/{vehicleregno}")]
@@ -118,7 +119,7 @@ namespace DigisensePlatformAPIs.Controllers
             }
         }
         #endregion
-
+        //
         #region PUT  Break Down  Details  
         [HttpPut]
         [Route("api/breakDown/{vehicleregno}")]

@@ -11,81 +11,89 @@ namespace DigisensePlatformAPIs.Models
 
     }
 
+    #region GET /reportSummary/platform/{platform}/health
+    public class ReportSummaryPlatFormHealth
+    {
+    public int totalBreakdownsOccurred { get; set; }
+    public int totalBreakdownsClosed { get; set; }
+   }
+    #endregion
+
     #region Report Summary 8.02
-        public class ReportSummaryMTBD
-        {
-         public ReportSummaryMTBD()
+    public class ReportSummaryMTBD
+    {
+        public ReportSummaryMTBD()
         {
             applicationjson = new List<ReportSummaryMTBDApplicationJson>();
         }
-           [JsonProperty("application/json")]
-            public List<ReportSummaryMTBDApplicationJson> applicationjson { get; set; }
-        }
-        public class ReportSummaryMTBDApplicationJson
-       {
+        [JsonProperty("application/json")]
+        public List<ReportSummaryMTBDApplicationJson> applicationjson { get; set; }
+    }
+    public class ReportSummaryMTBDApplicationJson
+    {
         public ReportSummaryMTBDApplicationJson()
         {
             categories = new List<ReportSummaryMTBDCategory>();
         }
-            public string displayName { get; set; }
-            public List<ReportSummaryMTBDCategory> categories { get; set; }
+        public string displayName { get; set; }
+        public List<ReportSummaryMTBDCategory> categories { get; set; }
+    }
+    public class ReportSummaryMTBDCategory
+    {
+        public string url { get; set; }
+        public string displayName { get; set; }
+    }
+
+    #endregion
+
+    #region Report Summary 8.03
+    public class ReportSummaryForSpecificVehicle
+    {
+        public ReportSummaryForSpecificVehicle()
+        {
+            summary = new List<Summary>();
+            detailed = new List<Detailed>();
         }
-        public class ReportSummaryMTBDCategory
-       {
-            public string url { get; set; }
-            public string displayName { get; set; }
+        public List<Summary> summary { get; set; }
+        public List<Detailed> detailed { get; set; }
+    }
+    public class Summary
+    {
+        public string name { get; set; }
+        public string value { get; set; }
+    }
+
+    public class Datasets
+    {
+        public Datasets()
+        {
+            background = new List<string>();
+            data = new List<int>();
         }
-
-#endregion
-
-   #region Report Summary 8.03
-public class ReportSummaryForSpecificVehicle
-{
-    public ReportSummaryForSpecificVehicle()
-    {
-        summary = new List<Summary>();
-        detailed = new List<Detailed>();
+        public List<string> background { get; set; }
+        public string label { get; set; }
+        public List<int> data { get; set; }
     }
-    public List<Summary> summary { get; set; }
-    public List<Detailed> detailed { get; set; }
-}
-public class Summary
-{
-    public string name { get; set; }
-    public string value { get; set; }
-}
 
-public class Datasets
-{
-    public Datasets()
+    public class Options
     {
-        background = new List<string>();
-        data = new List<int>();
+        public bool responsive { get; set; }
+        public bool maintainAspectRatio { get; set; }
     }
-    public List<string> background { get; set; }
-    public string label { get; set; }
-    public List<int> data { get; set; }
-}
 
-public class Options
-{
-    public bool responsive { get; set; }
-    public bool maintainAspectRatio { get; set; }
-}
-
-public class Detailed
-{
-    public Detailed()
+    public class Detailed
     {
-        labels = new List<string>();
-        datasets = new List<Datasets>();
+        public Detailed()
+        {
+            labels = new List<string>();
+            datasets = new List<Datasets>();
+        }
+        public List<string> labels { get; set; }
+        [JsonProperty("dataset")]
+        public List<Datasets> datasets { get; set; }
+        public string chartType { get; set; }
+        public Options options { get; set; }
     }
-    public List<string> labels { get; set; }
-    [JsonProperty("dataset")]
-    public List<Datasets> datasets { get; set; }
-    public string chartType { get; set; }
-    public Options options { get; set; }
-}
 
     #endregion
 
@@ -95,7 +103,7 @@ public class Detailed
 
 
     public class VehicleMovementSpeed
-   {
+    {
         public VehicleMovementSpeedData data { get; set; }
         public string chartType { get; set; }
         public VehicleMovementSpeedOptions options { get; set; }
@@ -105,8 +113,13 @@ public class Detailed
     {
         public bool responsive { get; set; }
         public bool maintainAspectRatio { get; set; }
+        public VehicleMovementSpeedTitle title { get; set; }
     }
-
+    public class VehicleMovementSpeedTitle
+    {
+        public bool display { get; set; }
+        public string text { get; set; }
+    }
 
     public class VehicleMovementSpeedData
     {
@@ -136,7 +149,7 @@ public class Detailed
     #region GET /report/platform/mtbd/vehiclemovement/usagetime/{vehicleRegNo}
 
     public class VehicleMovementUsageTime
-   {
+    {
         public VehicleMovementUsageTimeData data { get; set; }
         public string chartType { get; set; }
         public VehicleMovementUsageTimeOptions options { get; set; }
@@ -145,17 +158,23 @@ public class Detailed
     {
         public bool responsive { get; set; }
         public bool maintainAspectRatio { get; set; }
+        public VehicleMovementUsageTimeTitle title { get; set; }
     }
-        public class VehicleMovementUsageTimeData
+    public class VehicleMovementUsageTimeTitle
+    {
+        public bool display { get; set; }
+        public string text { get; set; }
+    }
+    public class VehicleMovementUsageTimeData
+    {
+        public VehicleMovementUsageTimeData()
         {
-            public VehicleMovementUsageTimeData()
-            {
-                labels = new List<string>();
-                datasets = new List<VehicleMovementUsageTimeDataset>();
-            }
-            public List<string> labels { get; set; }
-            public List<VehicleMovementUsageTimeDataset> datasets { get; set; }
+            labels = new List<string>();
+            datasets = new List<VehicleMovementUsageTimeDataset>();
         }
+        public List<string> labels { get; set; }
+        public List<VehicleMovementUsageTimeDataset> datasets { get; set; }
+    }
     public class VehicleMovementUsageTimeDataset
     {
         public VehicleMovementUsageTimeDataset()
@@ -173,39 +192,44 @@ public class Detailed
     #region GET /report/platform/mtbd/vehiclemovement/enginerpm/{vehicleRegNo}
 
     public class VehicleMovementEngineRpm
-   {
+    {
         public VehicleMovementEngineRpmData data { get; set; }
         public string chartType { get; set; }
         public VehicleMovementEngineRpmOptions options { get; set; }
     }
-public class VehicleMovementEngineRpmOptions
-{
-    public bool responsive { get; set; }
-    public bool maintainAspectRatio { get; set; }
-}
-
-
-public class VehicleMovementEngineRpmData
-{
-    public VehicleMovementEngineRpmData()
+    public class VehicleMovementEngineRpmOptions
     {
-        labels = new List<string>();
-        datasets = new List<VehicleMovementEngineRpmDataset>();
+        public bool responsive { get; set; }
+        public bool maintainAspectRatio { get; set; }
+        public VehicleMovementEngineRpmTitle title { get; set; }
     }
-    public List<string> labels { get; set; }
-    public List<VehicleMovementEngineRpmDataset> datasets { get; set; }
-}
-public class VehicleMovementEngineRpmDataset
-{
-    public VehicleMovementEngineRpmDataset()
+    public class VehicleMovementEngineRpmTitle
     {
-        backgroundColor = new List<string>();
-        data = new List<int>();
+        public bool display { get; set; }
+        public string text { get; set; }
     }
-    public List<string> backgroundColor { get; set; }
-    public string label { get; set; }
-    public List<int> data { get; set; }
-}
+
+    public class VehicleMovementEngineRpmData
+    {
+        public VehicleMovementEngineRpmData()
+        {
+            labels = new List<string>();
+            datasets = new List<VehicleMovementEngineRpmDataset>();
+        }
+        public List<string> labels { get; set; }
+        public List<VehicleMovementEngineRpmDataset> datasets { get; set; }
+    }
+    public class VehicleMovementEngineRpmDataset
+    {
+        public VehicleMovementEngineRpmDataset()
+        {
+            backgroundColor = new List<string>();
+            data = new List<int>();
+        }
+        public List<string> backgroundColor { get; set; }
+        public string label { get; set; }
+        public List<int> data { get; set; }
+    }
 
     #endregion
 
@@ -217,21 +241,27 @@ public class VehicleMovementEngineRpmDataset
         public string chartType { get; set; }
         public VehilceMovementReportOptions options { get; set; }
     }
-        public class VehilceMovementReportOptions
+    public class VehilceMovementReportOptions
+    {
+        public bool responsive { get; set; }
+        public bool maintainAspectRatio { get; set; }
+        public VehilceMovementReportTitle title { get; set; }
+    }
+    public class VehilceMovementReportTitle
+    {
+        public bool display { get; set; }
+        public string text { get; set; }
+    }
+    public class VehilceMovementReportData
+    {
+        public VehilceMovementReportData()
         {
-            public bool responsive { get; set; }
-            public bool maintainAspectRatio { get; set; }
+            labels = new List<string>();
+            datasets = new List<VehilceMovementReportDataset>();
         }
-        public class VehilceMovementReportData
-        {
-            public VehilceMovementReportData()
-            {
-                labels = new List<string>();
-                datasets = new List<VehilceMovementReportDataset>();
-            }
-            public List<string> labels { get; set; }
-            public List<VehilceMovementReportDataset> datasets { get; set; }
-        }
+        public List<string> labels { get; set; }
+        public List<VehilceMovementReportDataset> datasets { get; set; }
+    }
     public class VehilceMovementReportDataset
     {
         public VehilceMovementReportDataset()
@@ -239,28 +269,33 @@ public class VehicleMovementEngineRpmDataset
             data = new List<string>();
         }
         public string label { get; set; }
-       //Data wwas given in swagger as int but we need to send the time to Zaid made it string
+        //Data wwas given in swagger as int but we need to send the time to Zaid made it string
         public List<string> data { get; set; }
         public string backgroundColor { get; set; }
     }
 
     #endregion
-  
+
     #region /report/platform/mtbd/alerts/vehiclealerts/{vehicleRegNo}
 
     public class ReportSumamryVehicleAlerts
-{
+    {
         public VehicleAlertData data { get; set; }
         public string chartType { get; set; }
         public VehicleAlertOptions options { get; set; }
     }
-   
+
     public class VehicleAlertOptions
     {
         public bool responsive { get; set; }
         public bool maintainAspectRatio { get; set; }
+        public VehicleAlertTitle title { get; set; }
     }
-
+    public class VehicleAlertTitle
+    {
+        public bool display { get; set; }
+        public string text { get; set; }
+    }
     public class VehicleAlertData
     {
         public VehicleAlertData()
@@ -271,17 +306,17 @@ public class VehicleMovementEngineRpmDataset
         public List<string> labels { get; set; }
         public List<VehicleAlertDataset> datasets { get; set; }
     }
-  
+
     public class VehicleAlertDataset
     {
-    public VehicleAlertDataset()
-    {
+        public VehicleAlertDataset()
+        {
             data = new List<int>();
+        }
+        public string label { get; set; }
+        public List<int> data { get; set; }
+        public string backgroundColor { get; set; }
     }
-    public string label { get; set; }
-    public List<int> data { get; set; }
-    public string backgroundColor { get; set; }
-   }
 
     #endregion
 
@@ -294,69 +329,75 @@ public class VehicleMovementEngineRpmDataset
         public AlertsViolationOptions options { get; set; }
     }
 
-        public class AlertsViolationDataset
-{
+    public class AlertsViolationDataset
+    {
         public AlertsViolationDataset()
         {
             data = new List<int>();
         }
-    public string label { get; set; }
-    public List<int> data { get; set; }
-    public string backgroundColor { get; set; }
-}
+        public string label { get; set; }
+        public List<int> data { get; set; }
+        public string backgroundColor { get; set; }
+    }
 
-public class AlertsViolationData
-{
+    public class AlertsViolationData
+    {
         public AlertsViolationData()
         {
             labels = new List<string>();
             datasets = new List<AlertsViolationDataset>();
         }
-    public List<string> labels { get; set; }
-    public List<AlertsViolationDataset> datasets { get; set; }
-}
+        public List<string> labels { get; set; }
+        public List<AlertsViolationDataset> datasets { get; set; }
+    }
 
-public class AlertsViolationOptions
-{
-    public bool responsive { get; set; }
-    public bool maintainAspectRatio { get; set; }
-}
+    public class AlertsViolationOptions
+    {
+        public bool responsive { get; set; }
+        public bool maintainAspectRatio { get; set; }
+        public AlertsViolationTitle title { get; set; }
+    }
+    public class AlertsViolationTitle
+    {
+        public bool display { get; set; }
+        public string text { get; set; }
+    }
 
 
 
 
 
-#endregion
+    #endregion
 
     #region GET /reportsummary/platform/mtbd/driver/distancecovered
-public class ReportSummaryDistanceCovered
-{
-    public ReportSummaryDistanceCovered()
+    public class ReportSummaryDistanceCovered
     {
-        labels = new List<string>();
-        datasets = new List<DistanceCoveredDataset>();
+        public ReportSummaryDistanceCovered()
+        {
+            labels = new List<string>();
+            datasets = new List<DistanceCoveredDataset>();
+        }
+        public List<string> labels { get; set; }
+        public List<DistanceCoveredDataset> datasets { get; set; }
+        public string chartType { get; set; }
+        public Options options { get; set; }
     }
-    public List<string> labels { get; set; }
-    public List<DistanceCoveredDataset> datasets { get; set; }
-    public string chartType { get; set; }
-    public Options options { get; set; }
-}
-public class DistanceCoveredDataset
-{
-    public DistanceCoveredDataset()
+    public class DistanceCoveredDataset
     {
-        data = new List<int>();
+        public DistanceCoveredDataset()
+        {
+            data = new List<int>();
+        }
+        public string label { get; set; }
+        public List<int> data { get; set; }
+        public string background { get; set; }
     }
-    public string label { get; set; }
-    public List<int> data { get; set; }
-    public string background { get; set; }
-}
 
-public class DistanceCoveredOptions
-{
-    public bool responsive { get; set; }
-    public bool maintainAspectRatio { get; set; }
-}
+    public class DistanceCoveredOptions
+    {
+        public bool responsive { get; set; }
+        public bool maintainAspectRatio { get; set; }
+    }
 
 
     #endregion
@@ -412,6 +453,25 @@ public class DistanceCoveredOptions
     }
     #endregion
 
+    #region GET /report/platform/mtbd/delivery/vehicleusagesummary/{vehicleRegNo}
+
+    public class VehicleUsageSummary
+    {
+        public string title { get; set; }
+        public string value { get; set; }
+    }
+
+    public class ReportVehicleUsageSummary
+    {
+        public ReportVehicleUsageSummary()
+        {
+            summary = new List<VehicleUsageSummary>();
+        }
+        public List<VehicleUsageSummary> summary { get; set; }
+    }
+
+    #endregion
+
     #endregion
 
     #region Report Summary Common Response
@@ -421,13 +481,14 @@ public class DistanceCoveredOptions
 
     /// GET /reportsummary/platform/mtbd/vehiclehealth/vehiclehealthsummary/{vehicleRegNo}
     /// Get /report/platform/mtbd/delivery/vehicleusagesummary/{vehicleRegNo}
+    /// 
     /// </summary>
     public class ReportSummaryCommonReponse
     {
         public string name { get; set; }
         public string value { get; set; }
     }
-     #endregion
+    #endregion
 
     #region Report Summary Common Response
 
@@ -437,7 +498,7 @@ public class DistanceCoveredOptions
     /// 
     /// </summary>
     public class ReportSummaryCommonResponse
-   {
+    {
         public ReportSummaryCommonData data { get; set; }
         public string chartType { get; set; }
         public ReportSummaryCommonOptions options { get; set; }
@@ -446,9 +507,16 @@ public class DistanceCoveredOptions
     {
         public bool responsive { get; set; }
         public bool maintainAspectRatio { get; set; }
+        public ReportSummaryCommonTitle title { get; set; }
+
+    }
+    public class ReportSummaryCommonTitle
+    {
+        public bool display { get; set; }
+        public string text { get; set; }
     }
     public class ReportSummaryCommonData
-    { 
+    {
         public ReportSummaryCommonData()
         {
             datasets = new List<ReportSummaryCommonDataset>();
@@ -458,39 +526,39 @@ public class DistanceCoveredOptions
         public List<ReportSummaryCommonDataset> datasets { get; set; }
     }
     public class ReportSummaryCommonDataset
-{
-    public ReportSummaryCommonDataset()
     {
-        data = new List<int>();
-        backgroundColor = new List<string>();
+        public ReportSummaryCommonDataset()
+        {
+            data = new List<int>();
+            backgroundColor = new List<string>();
+        }
+        public List<string> backgroundColor { get; set; }
+        public string label { get; set; }
+        public List<int> data { get; set; }
     }
-    public List<string> backgroundColor { get; set; }
-    public string label { get; set; }
-    public List<int> data { get; set; }
-}
 
-#endregion
+    #endregion
 
-#region Common Summary 
-/// <summary>
-///  GET /report/delivery/{vehicleRegNo}/{delivery}
-///  GET /report/vehiclehealth/{vehicleRegNo}/{vehiclehealth}
-/// </summary>
+    #region Common Summary 
+    /// <summary>
+    ///  GET /report/delivery/{vehicleRegNo}/{delivery}
+    ///  GET /report/vehiclehealth/{vehicleRegNo}/{vehiclehealth}
+    /// </summary>
 
-public class VehicleSummary
-{
-    public VehicleSummary()
+    public class VehicleSummary
     {
-        summary = new List<CommonSummary>();
+        public VehicleSummary()
+        {
+            summary = new List<CommonSummary>();
+        }
+        [JsonProperty("summary")]
+        public List<CommonSummary> summary { get; set; }
     }
-    [JsonProperty("summary")]
-    public List<CommonSummary> summary { get; set; }
-}
-public class CommonSummary
-{
-    public string name { get; set; }
-    public string value { get; set; }
-}
+    public class CommonSummary
+    {
+        public string name { get; set; }
+        public string value { get; set; }
+    }
 
     #endregion
 

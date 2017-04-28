@@ -79,7 +79,6 @@ namespace DigisensePlatformAPIs.Controllers
                         return Request.CreateResponse(HttpStatusCode.OK, BLUtilities.Common_BL.Response("credentials are incorrect."));
 
                     }
-
                 }
 
                 else
@@ -92,10 +91,7 @@ namespace DigisensePlatformAPIs.Controllers
             {
                 Log.Error(ex.Message);
                 return Request.CreateResponse(HttpStatusCode.BadRequest, BLUtilities.Common_BL.Response(ex.Message));
-                
             }
-
-
         #endregion
         }
     }

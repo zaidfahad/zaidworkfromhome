@@ -262,6 +262,29 @@ namespace DigisensePlatformAPIs.DBUtilities
                 "StartedFrom" varchar, "ArrivedAt" varchar, "StartFuel" double precision, "EndFuel" double precision, 
                 "FE Trip A"  double precision, "FE Trip B" double precision, "VehicleRegNo" varchar, fuel_refill boolean, 
                 refill_quantity double precision, refill_time timestamp with time zone) 
+
+            
+
+                Zaid Ahmad Khan
+10:17 AM
+AS SALAM O ALLIKUM WARAHMATUL LAAHI WA BARAKATAHU !
+Change request excel we should discuss 
+Akbar Ali1
+10:18 AM
+Waalykum as salaa wa rehumatullahi wa barkatahu
+Akbar Ali110:26 AMwill get back to u in few minutes
+usp_mobileapi_get_vehicle_reportsummary
+usp_mobileapi_get_vehicle_reportsummary(
+    IN username character varying,
+    IN vehregno character varying,
+	IN fromdate timestamp with time zone,
+	IN todate timestamp with time zone)
+  RETURNS TABLE("Distance Travelled" double precision, "Average Speed" numeric,"Driving Time" double precision,
+  "Idle Time" double precision, "Usage Time" double precision, "Vehicle Number" varchar, "Last Used On" timestamp with time zone,
+  "Location"  text)
+
+
+
               */
                 NpgsqlParameter[] oNpgsqlParameter = new NpgsqlParameter[4];
                 oNpgsqlParameter[0] = new NpgsqlParameter("username", DbType.String);
@@ -421,7 +444,7 @@ namespace DigisensePlatformAPIs.DBUtilities
         #endregion
 
         #region GET /report/platform/mtbd/alerts/violation/{vehicleRegNo}
-        public static DataSet AlertsViolation(string username, int buinessId,string vehicleRegNo,DateTime startDate,DateTime endDate)
+        public static DataSet AlertsViolation(string username, int buinessId, string vehicleRegNo, DateTime startDate, DateTime endDate)
         {
             /*
                  usp_mobileapi_vehicle_violation_report(
@@ -506,7 +529,7 @@ namespace DigisensePlatformAPIs.DBUtilities
         #endregion
 
         #region GET /reportsummary/platform/mtbd/alerts/alertssummary/{vehicleRegNo}
-        public static DataTable AlertsSummary(string username, int buinessId,string vehicleRegNo,DateTime startDate,DateTime endDate)
+        public static DataTable AlertsSummary(string username, int buinessId, string vehicleRegNo, DateTime startDate, DateTime endDate)
         {
             NpgsqlConnection connection = null;
             DataTable dtresult = new DataTable();
@@ -564,16 +587,38 @@ namespace DigisensePlatformAPIs.DBUtilities
         #endregion
 
         #region GET /report/platform/mtbd/delivery/vehicleusagesummary/{vehicleRegNo}
-        public static DataTable VehicleUsageSummary(string username, int buinessId)
+        public static DataTable VehicleUsageSummary(string username, int buinessId, string vehicleRegNo, DateTime startDate, DateTime endDate)
         {
-            DataTable dt = new DataTable();
-            return dt;
+            NpgsqlConnection connection = null;
+            DataTable dtresult = new DataTable();
+            try
+            {
+                string result = string.Empty;
+                object[] oParameters = new object[4];
+                oParameters[0] = username;
+                oParameters[1] = vehicleRegNo;
+                oParameters[2] = startDate;
+                oParameters[3] = endDate;
+                /*
+                */
+                NpgsqlParameter[] oNpgsqlParameter = new NpgsqlParameter[4];
+                oNpgsqlParameter[0] = new NpgsqlParameter("username", DbType.String);
+                oNpgsqlParameter[1] = new NpgsqlParameter("vehregno", DbType.String);
+                oNpgsqlParameter[2] = new NpgsqlParameter("fromdate", DbType.DateTime);
+                oNpgsqlParameter[3] = new NpgsqlParameter("todate", DbType.DateTime);
+                connection = DBConnection.GetConnection(Convert.ToInt16(buinessId));
+                dtresult = NpgsqlHelper.ExecuteDataTable(connection, "usp_mobileapi_get_vehicle_usagesummary", oParameters, oNpgsqlParameter);
+            }
+            catch (Exception ex)
+            {
+            }
+            return dtresult;
         }
 
         #endregion
 
         #region GET /reportsummary/platform/mtbd/vehiclehealth/vehiclehealthsummary/{vehicleRegNo}
-        public static DataTable VehicleHealthSummary(string username, int buinessId,string vehicleRegNo,DateTime startDate,DateTime endDate)
+        public static DataTable VehicleHealthSummary(string username, int buinessId, string vehicleRegNo, DateTime startDate, DateTime endDate)
         {
 
             NpgsqlConnection connection = null;

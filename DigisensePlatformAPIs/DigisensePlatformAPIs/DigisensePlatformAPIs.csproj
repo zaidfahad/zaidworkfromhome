@@ -206,6 +206,7 @@
     <Compile Include="Models\GeofenceResponse.cs" />
     <Compile Include="Models\Login.cs" />
     <Compile Include="Models\LoginResponse.cs" />
+    <Compile Include="Models\LongitudeLatitudeResponse.cs" />
     <Compile Include="Models\ReportSummary.cs" />
     <Compile Include="Models\ReportSummaryResponse.cs" />
     <Compile Include="Models\RoutePlan.cs" />

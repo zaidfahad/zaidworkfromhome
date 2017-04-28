@@ -170,41 +170,41 @@ namespace DigisensePlatformAPIs.BLUtilities
 
 
         #region    Vehicle Health Status Response 8.05
-        public static List<VehicleHealthStatusResponse> VehicleHealthStatusResponse(DataSet dt)
+        public static ReportSummaryPlatFormHealth VehicleHealthStatusResponse(DataSet dt)
         {
-            List<VehicleHealthStatusResponse> list = new List<VehicleHealthStatusResponse>();
-            list.Clear();
+            ReportSummaryPlatFormHealth reprothealth = new ReportSummaryPlatFormHealth(); 
+         
             try
             {
-                VehicleHealthStatusResponse clsVehicleHealthStatusResponse = new VehicleHealthStatusResponse();
-                vehiclehealth clsvehiclehealth = new vehiclehealth();
-                for (int i = 0; i < dt.Tables[0].Rows.Count; i++)
+                // for (int i = 0; i < dt.Tables[0].Rows.Count; i++)
+                //{
+
+                /*Swagger 2.0 says do not have need this
+                if (dt.Tables[0].Rows[i]["vehiclehealth"].ToString() == "Good")
                 {
-
-                    if (dt.Tables[0].Rows[i]["vehiclehealth"].ToString() == "Good")
-                    {
-                        clsvehiclehealth.good = Convert.ToInt32(dt.Tables[0].Rows[i]["COUNT"]);
-                    }
-                    else if (dt.Tables[0].Rows[i]["vehiclehealth"].ToString() == "Bad")
-                    {
-                        clsvehiclehealth.bad = Convert.ToInt32(dt.Tables[0].Rows[i]["COUNT"]);
-                    }
-                    else if (dt.Tables[0].Rows[i]["vehiclehealth"].ToString() == "Warning")
-                    {
-                        clsvehiclehealth.warning = Convert.ToInt32(dt.Tables[0].Rows[i]["COUNT"]);
-                    }
-
+                    clsvehiclehealth.good = Convert.ToInt32(dt.Tables[0].Rows[i]["COUNT"]);
                 }
-                clsVehicleHealthStatusResponse.vehiclehealth = clsvehiclehealth;
-                clsVehicleHealthStatusResponse.totalBreakdownsOccurred = Convert.ToInt32(dt.Tables[1].Rows[0][0].ToString() == "" ? 0 : Convert.ToInt32(dt.Tables[1].Rows[0][0].ToString()));
-                clsVehicleHealthStatusResponse.totalBreakdownsClosed = Convert.ToInt32(dt.Tables[2].Rows[0][0].ToString() == "" ? 0 : Convert.ToInt32(dt.Tables[2].Rows[0][0].ToString()));
+                else if (dt.Tables[0].Rows[i]["vehiclehealth"].ToString() == "Bad")
+                {
+                    clsvehiclehealth.bad = Convert.ToInt32(dt.Tables[0].Rows[i]["COUNT"]);
+                }
+                else if (dt.Tables[0].Rows[i]["vehiclehealth"].ToString() == "Warning")
+                {
+                    clsvehiclehealth.warning = Convert.ToInt32(dt.Tables[0].Rows[i]["COUNT"]);
+                }
 
-                list.Add(clsVehicleHealthStatusResponse);
-                return list;
+            }
+            */
+                // clsVehicleHealthStatusResponse.vehiclehealth = clsvehiclehealth;
+                reprothealth.totalBreakdownsOccurred = Convert.ToInt32(dt.Tables[1].Rows[0][0].ToString() == "" ? 0 : Convert.ToInt32(dt.Tables[1].Rows[0][0].ToString()));
+                reprothealth.totalBreakdownsClosed = Convert.ToInt32(dt.Tables[2].Rows[0][0].ToString() == "" ? 0 : Convert.ToInt32(dt.Tables[2].Rows[0][0].ToString()));
+
+               // list.Add(clsVehicleHealthStatusResponse);
+                return reprothealth;
             }
             catch (Exception ex)
             {
-                return list;
+                return reprothealth;
             }
         }
         #endregion
@@ -216,10 +216,10 @@ namespace DigisensePlatformAPIs.BLUtilities
         public static VehicleMovementSpeed PlatformVehilceMovementSpeedResponse(DataTable dt)
         {
             VehicleMovementSpeed vehiclemovementSpeed = new VehicleMovementSpeed();
-          //  VehicleMovementSpeedApplicationJson vehilcesppedAppjson = new VehicleMovementSpeedApplicationJson();
             VehicleMovementSpeedOptions vehicleSppeedoptions = new VehicleMovementSpeedOptions();
             VehicleMovementSpeedData vehicleSpeeddata = new VehicleMovementSpeedData();
             VehicleMovementSpeedDataset datasets = new VehicleMovementSpeedDataset();
+            VehicleMovementSpeedTitle titles = new VehicleMovementSpeedTitle();
             try
             {
                 vehicleSpeeddata.labels.Add("1-30");
@@ -262,8 +262,10 @@ namespace DigisensePlatformAPIs.BLUtilities
                 #region   vehicleusageTimedata.datasets.Add(datasets);
                 vehicleSpeeddata.datasets.Add(datasets);
                 #endregion
-
+                titles.display = true;
+                titles.text = "Speed Report";
                 vehicleSppeedoptions.maintainAspectRatio = false;
+                vehicleSppeedoptions.title = titles;
                 vehicleSppeedoptions.responsive = true;
                 vehiclemovementSpeed.data = vehicleSpeeddata;
                 vehiclemovementSpeed.chartType = "bar";
@@ -284,6 +286,7 @@ namespace DigisensePlatformAPIs.BLUtilities
             //VehicleMovementUsageTimeApplicationJson vehilceuagetimeAppjson = new VehicleMovementUsageTimeApplicationJson(); swagger 2.0
             VehicleMovementUsageTimeOptions vehicleusageTimeoptions = new VehicleMovementUsageTimeOptions();
             VehicleMovementUsageTimeData vehicleusageTimedata = new VehicleMovementUsageTimeData();
+            VehicleMovementUsageTimeTitle titles = new VehicleMovementUsageTimeTitle();
             VehicleMovementUsageTimeDataset datasets = new VehicleMovementUsageTimeDataset();
             try
             {
@@ -322,10 +325,14 @@ namespace DigisensePlatformAPIs.BLUtilities
                 #region   vehicleusageTimedata.datasets.Add(datasets);
                 vehicleusageTimedata.datasets.Add(datasets);
                 #endregion
+                titles.display = true;
+                titles.text = "Usage Time Report";
                 vehicleusageTimeoptions.maintainAspectRatio = false;
+                vehicleusageTimeoptions.title = titles;
                 vehicleusageTimeoptions.responsive = true;
                 vehiclemovementUsageTime.data = vehicleusageTimedata;
                 vehiclemovementUsageTime.chartType = "pie";
+
                 vehiclemovementUsageTime.options = vehicleusageTimeoptions;
             }
             catch (Exception ex)
@@ -339,19 +346,20 @@ namespace DigisensePlatformAPIs.BLUtilities
         public static VehicleMovementEngineRpm VehilceMovementEngineRpm(DataTable dt)
         {
             VehicleMovementEngineRpm vehiclemovementEnginerpm = new VehicleMovementEngineRpm();
-             /*
-             swagger 2.0
-             VehicleMovementEngineRpmApplicationJson vehiclemovementEnginerpmAppjson = new VehicleMovementEngineRpmApplicationJson();
-            */
+            /*
+            swagger 2.0
+            VehicleMovementEngineRpmApplicationJson vehiclemovementEnginerpmAppjson = new VehicleMovementEngineRpmApplicationJson();
+           */
             VehicleMovementEngineRpmOptions vehiclemovementEnginerpmoptions = new VehicleMovementEngineRpmOptions();
             VehicleMovementEngineRpmData vehiclemovementEnginerpmdata = new VehicleMovementEngineRpmData();
             VehicleMovementEngineRpmDataset vehiclemovementEnginerpmdatasets = new VehicleMovementEngineRpmDataset();
+            VehicleMovementEngineRpmTitle titles = new VehicleMovementEngineRpmTitle();
             try
             {
-                vehiclemovementEnginerpmdata.labels.Add("RPM1001To1500");
-                vehiclemovementEnginerpmdata.labels.Add("RPM1501To2500");
-               // vehiclemovementEnginerpmdata.labels.Add("RPM2001To2500");
-                vehiclemovementEnginerpmdata.labels.Add("AboveRPM2501");
+                vehiclemovementEnginerpmdata.labels.Add("RPM1001To1500-Most Economical");
+                vehiclemovementEnginerpmdata.labels.Add("RPM1501To2500-Economical");
+                // vehiclemovementEnginerpmdata.labels.Add("RPM2001To2500");
+                vehiclemovementEnginerpmdata.labels.Add("AboveRPM2501-Non Economical");
                 for (int icount = 0; icount < dt.Rows.Count; icount++)
                 {
                     #region vehicleusageTimedata.data list 
@@ -383,6 +391,9 @@ namespace DigisensePlatformAPIs.BLUtilities
                 vehiclemovementEnginerpmdatasets.backgroundColor.Add("#ff0000");
                 vehiclemovementEnginerpmdatasets.label = "EngineReport";
                 #endregion
+                titles.display = true;
+                titles.text = "Engine RPM Report";
+                vehiclemovementEnginerpmoptions.title = titles;
                 vehiclemovementEnginerpmdata.datasets.Add(vehiclemovementEnginerpmdatasets);
                 vehiclemovementEnginerpmoptions.maintainAspectRatio = false;
                 vehiclemovementEnginerpmoptions.responsive = true;
@@ -402,32 +413,68 @@ namespace DigisensePlatformAPIs.BLUtilities
         public static ReportSummaryVehicleMovementSummary VehilceMovementSummary(DataTable dt)
         {
             ReportSummaryVehicleMovementSummary vehicleSummary = new ReportSummaryVehicleMovementSummary();
-            List<VehicleMovementSummary> summaryList=new List<VehicleMovementSummary>();
+            List<VehicleMovementSummary> summaryList = new List<VehicleMovementSummary>();
             summaryList.Clear();
             try
             {
                 for (int icount = 0; icount < dt.Rows.Count; icount++)
                 {
-
-                    for (int ycount = 0; ycount < dt.Columns.Count; ycount++)
+                    if (Convert.ToString(dt.Rows[icount]["Last Used On"]) != null)
                     {
                         VehicleMovementSummary summary = new VehicleMovementSummary();
-                        summary.title = dt.Columns[ycount].ColumnName.ToString();
-                        if (dt.Columns[ycount].ColumnName.ToString() == "Last Used On")
-                        {
-                            summary.value = Convert.ToDateTime(dt.Rows[icount][ycount]).ToString("yyyy-MM-dd HH:mm:ss");
-                        }
-                        else
-                        {
-                            if (dt.Rows[icount][ycount] != null && Convert.ToString(dt.Rows[icount][ycount]) != "")
-                            {
-                                summary.value = Convert.ToString(dt.Rows[icount][ycount]);
-                            }
-                            else
-                            {
-                                summary.value = "0";
-                            }
-                        }
+                        summary.title = "Last Used On";
+                        summary.value = Convert.ToDateTime(dt.Rows[icount]["Last Used On"]).ToString("yyyy-MM-dd HH:mm:ss");
+                        summaryList.Add(summary);
+                    }
+                    if (Convert.ToString(dt.Rows[icount]["Distance Travelled"]) != null)
+                    {
+                        VehicleMovementSummary summary = new VehicleMovementSummary();
+                        summary.title = "Distance Travelled";
+                        summary.value = Convert.ToString(dt.Rows[icount]["Distance Travelled"]) + " Kms";
+                        summaryList.Add(summary);
+                    }
+
+                    if (Convert.ToString(dt.Rows[icount]["Average Speed"]) != null)
+                    {
+                        VehicleMovementSummary summary = new VehicleMovementSummary();
+                        summary.title = "Average Speed";
+                        summary.value = Convert.ToString(dt.Rows[icount]["Average Speed"]) + " Kmph";
+                        summaryList.Add(summary);
+                    }
+                    if (Convert.ToString(dt.Rows[icount]["Driving Time"]) != null)
+                    {
+                        VehicleMovementSummary summary = new VehicleMovementSummary();
+                        summary.title = "Driving Time";
+                        summary.value = Convert.ToDouble(dt.Rows[icount]["Driving Time"]).ConvertSecondsintoHHMMSSFormat();
+                        summaryList.Add(summary);
+                    }
+
+                    if (Convert.ToString(dt.Rows[icount]["Idle Time"]) != null)
+                    {
+                        VehicleMovementSummary summary = new VehicleMovementSummary();
+                        summary.title = "Idle Time";
+                        summary.value = Convert.ToDouble(dt.Rows[icount]["Idle Time"]).ConvertSecondsintoHHMMSSFormat();
+                        summaryList.Add(summary);
+                    }
+                    if (Convert.ToString(dt.Rows[icount]["Usage Time"]) != null)
+                    {
+                        VehicleMovementSummary summary = new VehicleMovementSummary();
+                        summary.title = "Usage Time";
+                        summary.value = Convert.ToDouble(dt.Rows[icount]["Usage Time"]).ConvertSecondsintoHHMMSSFormat();
+                        summaryList.Add(summary);
+                    }
+                    if (Convert.ToString(dt.Rows[icount]["Vehicle Number"]) != null)
+                    {
+                        VehicleMovementSummary summary = new VehicleMovementSummary();
+                        summary.title = "Vehicle Number";
+                        summary.value = Convert.ToString(dt.Rows[icount]["Vehicle Number"]);
+                        summaryList.Add(summary);
+                    }
+                    if (Convert.ToString(dt.Rows[icount]["Location"]) != null)
+                    {
+                        VehicleMovementSummary summary = new VehicleMovementSummary();
+                        summary.title = "Last Known Location";
+                        summary.value = Convert.ToString(dt.Rows[icount]["Location"]).FetchAddressByLongitudeLatitude();
                         summaryList.Add(summary);
                     }
                 }
@@ -448,6 +495,7 @@ namespace DigisensePlatformAPIs.BLUtilities
             VehilceMovementReport vehiclemovementReport = new VehilceMovementReport();
             VehilceMovementReportData vehiclemovementreportData = new VehilceMovementReportData();
             VehilceMovementReportOptions vehiclereportOptions = new VehilceMovementReportOptions();
+            VehilceMovementReportTitle titles = new VehilceMovementReportTitle();
             try
             {
                 VehilceMovementReportDataset vehiclemovementreportDataset;
@@ -499,11 +547,14 @@ namespace DigisensePlatformAPIs.BLUtilities
                 vehiclemovementreportData.datasets.Add(vehiclemovementreportDataset);
 
                 //App-Json Data 
+                titles.display = true;
+                titles.text = "Vehicle Movement Report";
+                vehiclereportOptions.title = titles;
                 vehiclereportOptions.maintainAspectRatio = false;
                 vehiclereportOptions.responsive = true;
                 vehiclemovementReport.options = vehiclereportOptions;
                 vehiclemovementReport.data = vehiclemovementreportData;
-                vehiclemovementReport.chartType = "line";
+                vehiclemovementReport.chartType = "bar";
             }
             catch (Exception ex)
             {
@@ -520,7 +571,7 @@ namespace DigisensePlatformAPIs.BLUtilities
             VehicleAlertDataset vehiclealertDataSet;
             VehicleAlertData vehiclealertData = new VehicleAlertData();
             VehicleAlertOptions vehicleOptions = new VehicleAlertOptions();
-
+            VehicleAlertTitle titles = new VehicleAlertTitle();
             List<string> vehiclealertdataLabel = new List<string>();
             //DataSet There are 7 table start with 0 and fall in same sequence given below
 
@@ -545,7 +596,7 @@ namespace DigisensePlatformAPIs.BLUtilities
 
                 #region BreakdownAlerts
                 vehiclealertDataSet = new VehicleAlertDataset();
-                vehiclealertDataSet.label = "BreakdownAlerts";
+                vehiclealertDataSet.label = "Break Down Alert";
                 vehiclealertDataSet.backgroundColor = "#e6005c";
                 if (ds.Tables[0].Rows.Count > 0)
                 {
@@ -573,7 +624,7 @@ namespace DigisensePlatformAPIs.BLUtilities
 
                 #region  HighEngineAlerts
                 vehiclealertDataSet = new VehicleAlertDataset();
-                vehiclealertDataSet.label = "HighEngineAlerts";
+                vehiclealertDataSet.label = "High Engine Temp Alert";
                 vehiclealertDataSet.backgroundColor = "#669999";
                 if (ds.Tables[1].Rows.Count > 0)
                 {
@@ -602,7 +653,7 @@ namespace DigisensePlatformAPIs.BLUtilities
 
                 #region TamperAlerts
                 vehiclealertDataSet = new VehicleAlertDataset();
-                vehiclealertDataSet.label = "TamperAlerts";
+                vehiclealertDataSet.label = "Tamper Alert";
                 vehiclealertDataSet.backgroundColor = "#3333cc";
                 if (ds.Tables[2].Rows.Count > 0)
                 {
@@ -631,7 +682,7 @@ namespace DigisensePlatformAPIs.BLUtilities
 
                 #region BatteryDisconnectedAlerts
                 vehiclealertDataSet = new VehicleAlertDataset();
-                vehiclealertDataSet.label = "BatteryDisconnectedAlerts";
+                vehiclealertDataSet.label = "Battery Disconnected Alert";
                 vehiclealertDataSet.backgroundColor = "#b300b3";
                 if (ds.Tables[3].Rows.Count > 0)
                 {
@@ -660,7 +711,7 @@ namespace DigisensePlatformAPIs.BLUtilities
 
                 #region ServiceDueAlerts
                 vehiclealertDataSet = new VehicleAlertDataset();
-                vehiclealertDataSet.label = "ServiceDueAlerts";
+                vehiclealertDataSet.label = "Service Due Alert";
                 vehiclealertDataSet.backgroundColor = "#996600";
                 if (ds.Tables[4].Rows.Count > 0)
                 {
@@ -690,7 +741,7 @@ namespace DigisensePlatformAPIs.BLUtilities
 
                 #region FitnessCertificationAlerts
                 vehiclealertDataSet = new VehicleAlertDataset();
-                vehiclealertDataSet.label = "FitnessCertificationAlerts";
+                vehiclealertDataSet.label = "Fitness Certification Alert";
                 vehiclealertDataSet.backgroundColor = "#ff0000";
                 if (ds.Tables[5].Rows.Count > 0)
                 {
@@ -718,7 +769,7 @@ namespace DigisensePlatformAPIs.BLUtilities
 
                 #region InsurancePaymentAlerts
                 vehiclealertDataSet = new VehicleAlertDataset();
-                vehiclealertDataSet.label = "InsurancePaymentAlerts";
+                vehiclealertDataSet.label = "Insurance Payment Alert";
                 vehiclealertDataSet.backgroundColor = "#9900ff";
                 if (ds.Tables[6].Rows.Count > 0)
                 {
@@ -755,10 +806,13 @@ namespace DigisensePlatformAPIs.BLUtilities
                 #region Assigning Data 
                 vehiclealertData.datasets = datasetsList;
                 vehiclealertData.labels = vehiclealertdataLabel;
+                titles.display = true;
+                titles.text = "Vehicle Alerts";
+                vehicleOptions.title = titles;
                 reportsummaryVehiclealets.options = vehicleOptions;
 
                 reportsummaryVehiclealets.data = vehiclealertData;
-      
+
                 #endregion
 
                 return reportsummaryVehiclealets;
@@ -778,7 +832,7 @@ namespace DigisensePlatformAPIs.BLUtilities
             AlertsViolationDataset vehiclevoilationtDataSet;
             AlertsViolationData vehiclevoilationData = new AlertsViolationData();
             AlertsViolationOptions vehicleOptions = new AlertsViolationOptions();
-
+            AlertsViolationTitle titles = new AlertsViolationTitle();
             List<string> vehiclevoilationdataLabel = new List<string>();
             //DataSet There are 6 table start with 0 and fall in same sequence given below
 
@@ -802,7 +856,7 @@ namespace DigisensePlatformAPIs.BLUtilities
 
                 #region GeofenceAlerts
                 vehiclevoilationtDataSet = new AlertsViolationDataset();
-                vehiclevoilationtDataSet.label = "GeofenceAlerts";
+                vehiclevoilationtDataSet.label = "Geofence Alert";
                 vehiclevoilationtDataSet.backgroundColor = "#ff9966";
                 if (ds.Tables[0].Rows.Count > 0)
                 {
@@ -825,7 +879,7 @@ namespace DigisensePlatformAPIs.BLUtilities
 
                 #region  ExcessiveIdlingAlerts
                 vehiclevoilationtDataSet = new AlertsViolationDataset();
-                vehiclevoilationtDataSet.label = "ExcessiveIdlingAlerts";
+                vehiclevoilationtDataSet.label = "Excessive Idling Alert";
                 vehiclevoilationtDataSet.backgroundColor = "#ccff66";
                 if (ds.Tables[1].Rows.Count > 0)
                 {
@@ -849,7 +903,7 @@ namespace DigisensePlatformAPIs.BLUtilities
 
                 #region OverSpeedAlerts
                 vehiclevoilationtDataSet = new AlertsViolationDataset();
-                vehiclevoilationtDataSet.label = "OverSpeedAlerts";
+                vehiclevoilationtDataSet.label = "Over Speed Alert";
                 vehiclevoilationtDataSet.backgroundColor = "#ffc266";
                 if (ds.Tables[2].Rows.Count > 0)
                 {
@@ -874,7 +928,7 @@ namespace DigisensePlatformAPIs.BLUtilities
 
                 #region FuelTheftAlerts
                 vehiclevoilationtDataSet = new AlertsViolationDataset();
-                vehiclevoilationtDataSet.label = "FuelTheftAlerts";
+                vehiclevoilationtDataSet.label = "Fuel Theft Alert";
                 vehiclevoilationtDataSet.backgroundColor = "#996600";
                 if (ds.Tables[3].Rows.Count > 0)
                 {
@@ -899,7 +953,7 @@ namespace DigisensePlatformAPIs.BLUtilities
 
                 #region NightDrivingAlerts
                 vehiclevoilationtDataSet = new AlertsViolationDataset();
-                vehiclevoilationtDataSet.label = "NightDrivingAlerts";
+                vehiclevoilationtDataSet.label = "Night Driving Alert";
                 vehiclevoilationtDataSet.backgroundColor = "#3333cc";
                 if (ds.Tables[4].Rows.Count > 0)
                 {
@@ -925,7 +979,7 @@ namespace DigisensePlatformAPIs.BLUtilities
 
                 #region NeedHelpAlerts
                 vehiclevoilationtDataSet = new AlertsViolationDataset();
-                vehiclevoilationtDataSet.label = "NeedHelpAlerts";
+                vehiclevoilationtDataSet.label = "Need Help Alert";
                 vehiclevoilationtDataSet.backgroundColor = "#669999";
                 if (ds.Tables.Count == 6)
                 {
@@ -961,6 +1015,9 @@ namespace DigisensePlatformAPIs.BLUtilities
                 #region Assigning Data 
                 vehiclevoilationData.datasets = datasetsList;
                 vehiclevoilationData.labels = vehiclevoilationdataLabel;
+                titles.display = true;
+                titles.text = "Violations";
+                vehicleOptions.title = titles;
                 alertVoilation.options = vehicleOptions;
 
                 alertVoilation.data = vehiclevoilationData;
@@ -986,26 +1043,25 @@ namespace DigisensePlatformAPIs.BLUtilities
             {
                 for (int icount = 0; icount < dt.Rows.Count; icount++)
                 {
-
-                    for (int ycount = 0; ycount < dt.Columns.Count; ycount++)
+                    if (Convert.ToString(dt.Rows[icount]["Last Used On"]) != null)
                     {
                         AlertsSummary summary = new AlertsSummary();
-                        summary.title = dt.Columns[ycount].ColumnName.ToString();
-                        if (dt.Columns[ycount].ColumnName.ToString() == "Last Used On")
-                        {
-                            summary.value = Convert.ToDateTime(dt.Rows[icount][ycount]).ToString("yyyy-MM-dd HH:mm:ss");
-                        }
-                        else
-                        {
-                            if (dt.Rows[icount][ycount] != null && Convert.ToString(dt.Rows[icount][ycount]) != "")
-                            {
-                                summary.value = Convert.ToString(dt.Rows[icount][ycount]);
-                            }
-                            else
-                            {
-                                summary.value = "0";
-                            }
-                        }
+                        summary.title = "Last Used On";
+                        summary.value = Convert.ToDateTime(dt.Rows[icount]["Last Used On"]).ToString("yyyy-MM-dd HH:mm:ss");
+                        summaryList.Add(summary);
+                    }
+                    if (Convert.ToString(dt.Rows[icount]["Vehicle Number"]) != null)
+                    {
+                        AlertsSummary summary = new AlertsSummary();
+                        summary.title = "Vehicle Number";
+                        summary.value = Convert.ToString(dt.Rows[icount]["Vehicle Number"]);
+                        summaryList.Add(summary);
+                    }
+                    if (Convert.ToString(dt.Rows[icount]["Location"]) != null)
+                    {
+                        AlertsSummary summary = new AlertsSummary();
+                        summary.title = "Last Known Location";
+                        summary.value = Convert.ToString(dt.Rows[icount]["Location"]).FetchAddressByLongitudeLatitude();
                         summaryList.Add(summary);
                     }
                 }
@@ -1022,12 +1078,13 @@ namespace DigisensePlatformAPIs.BLUtilities
         public static ReportSummaryCommonResponse VehicleUsage(DataTable dt)
         {
             ReportSummaryCommonResponse reportsummaryCommon = new ReportSummaryCommonResponse();
-          
+
             ReportSummaryCommonData reposesummaryData = new ReportSummaryCommonData();
             ReportSummaryCommonOptions remportsummaryOptions = new ReportSummaryCommonOptions();
             ReportSummaryCommonDataset reportsummaryDataSet = new ReportSummaryCommonDataset();
-            reposesummaryData.labels.Add("UsedDays");
-            reposesummaryData.labels.Add("NotUsedDays");
+            ReportSummaryCommonTitle titles = new ReportSummaryCommonTitle();
+            reposesummaryData.labels.Add("Used Days");
+            reposesummaryData.labels.Add("Not Used Days");
             reportsummaryDataSet.backgroundColor.Add("#0066ff");
             reportsummaryDataSet.backgroundColor.Add("#ff8000");
             reportsummaryDataSet.label = "UsageReport";
@@ -1053,18 +1110,57 @@ namespace DigisensePlatformAPIs.BLUtilities
             reposesummaryData.datasets.Add(reportsummaryDataSet);
             remportsummaryOptions.maintainAspectRatio = false;
             remportsummaryOptions.responsive = true;
+            titles.display = true;
+            titles.text = "vehicle Usage Report";
+            remportsummaryOptions.title = titles;
             reportsummaryCommon.options = remportsummaryOptions;
             reportsummaryCommon.data = reposesummaryData;
             reportsummaryCommon.chartType = "pie";
-      
+
             return reportsummaryCommon;
         }
         #endregion
 
         #region GET /report/platform/mtbd/delivery/vehicleusagesummary/{vehicleRegNo}
-        public static List<ReportSummaryCommonReponse> VehicleReportSummary(DataTable dt)
+        public static ReportVehicleUsageSummary VehicleReportSummary(DataTable dt)
         {
-            return null;
+
+            ReportVehicleUsageSummary vehicleSummary = new ReportVehicleUsageSummary();
+            List<VehicleUsageSummary> summaryList = new List<VehicleUsageSummary>();
+            summaryList.Clear();
+            try
+            {
+
+                for (int icount = 0; icount < dt.Rows.Count; icount++)
+                {
+                    if (dt.Rows[icount]["Last Used On"] != null)
+                    {
+                        VehicleUsageSummary summary = new VehicleUsageSummary();
+                        summary.title = "Last Used On";
+                        summary.value = Convert.ToDateTime(dt.Rows[icount]["Last Used On"]).ToString("yyyy-MM-dd HH:mm:ss");
+                        summaryList.Add(summary);
+                    }
+                    if (dt.Rows[icount]["Vehicle Number"] != null)
+                    {
+                        VehicleUsageSummary summary = new VehicleUsageSummary();
+                        summary.title = "Vehicle Number";
+                        summary.value = Convert.ToString(dt.Rows[icount]["Vehicle Number"]);
+                        summaryList.Add(summary);
+                    }
+                    if (dt.Rows[icount]["Location"] != null)
+                    {
+                        VehicleUsageSummary summary = new VehicleUsageSummary();
+                        summary.title = "Last Known Location";
+                        summary.value = Convert.ToString(dt.Rows[icount]["Location"]).FetchAddressByLongitudeLatitude();
+                        summaryList.Add(summary);
+                    }
+                }
+                vehicleSummary.summary = summaryList;
+            }
+            catch (Exception ex)
+            {
+            }
+            return vehicleSummary;
         }
         #endregion
 
@@ -1079,27 +1175,45 @@ namespace DigisensePlatformAPIs.BLUtilities
                 for (int icount = 0; icount < dt.Rows.Count; icount++)
                 {
 
-                    for (int ycount = 0; ycount < dt.Columns.Count; ycount++)
+                    if (Convert.ToString(dt.Rows[icount]["No. of Breakdowns"]) != null)
                     {
                         VehicleHealthSummary summary = new VehicleHealthSummary();
-                        summary.title = dt.Columns[ycount].ColumnName.ToString();
-                        if (dt.Columns[ycount].ColumnName.ToString() == "Last Used On")
-                        {
-                            summary.value = Convert.ToDateTime(dt.Rows[icount][ycount]).ToString("yyyy-MM-dd HH:mm:ss");
-                        }
-                        else
-                        {
-                            if (dt.Rows[icount][ycount] != null && Convert.ToString(dt.Rows[icount][ycount]) != "")
-                            {
-                                summary.value = Convert.ToString(dt.Rows[icount][ycount]);
-                            }
-                            else
-                            {
-                                summary.value = "0";
-                            }
-                        }
+                        summary.title = "No. of Breakdowns";
+                        summary.value = Convert.ToString(dt.Rows[icount]["No. of Breakdowns"]);
                         summaryList.Add(summary);
                     }
+                    if (Convert.ToString(dt.Rows[icount]["Current Health Status"]) != null)
+                    {
+                        VehicleHealthSummary summary = new VehicleHealthSummary();
+                        summary.title = "Current Health Status";
+                        summary.value = Convert.ToString(dt.Rows[icount]["Current Health Status"]);
+                        summaryList.Add(summary);
+                    }
+                    if (Convert.ToString(dt.Rows[icount]["Last Used On"]) != null)
+                    {
+                        VehicleHealthSummary summary = new VehicleHealthSummary();
+                        summary.title = "Last Used On";
+                        summary.value = Convert.ToDateTime(dt.Rows[icount]["Last Used On"]).ToString("yyyy-MM-dd HH:mm:ss");
+                        summaryList.Add(summary);
+                    }
+                    if (Convert.ToString(dt.Rows[icount]["Vehicle Number"]) != null)
+                    {
+                        VehicleHealthSummary summary = new VehicleHealthSummary();
+                        summary.title = "Vehicle Number";
+                        summary.value = Convert.ToString(dt.Rows[icount]["Vehicle Number"]);
+                        summaryList.Add(summary);
+                    }
+                    if (Convert.ToString(dt.Rows[icount]["Location"]) != null)
+                    {
+                        VehicleHealthSummary summary = new VehicleHealthSummary();
+                        summary.title = "Last Known Location";
+                        summary.value = Convert.ToString(dt.Rows[icount]["Location"]).FetchAddressByLongitudeLatitude();
+                        summaryList.Add(summary);
+                    }
+
+
+
+
                 }
                 vehicleSummary.summary = summaryList;
             }

@@ -81,8 +81,11 @@ namespace DigisensePlatformAPIs.Controllers
 
             try
             {
-                 
-             
+
+                if (login == null)
+                {
+                    return Request.CreateResponse(HttpStatusCode.Unauthorized, BLUtilities.Common_BL.Response("parameters are required"));
+                }
                  
                 string token = string.Empty;
                 if (ModelState.IsValid)

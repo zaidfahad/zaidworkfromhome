@@ -1075,15 +1075,19 @@ namespace DigisensePlatformAPIs.Controllers
                                     return Request.CreateResponse(HttpStatusCode.OK, BLUtilities.Common_BL.Response("Records not found."));
                                 }
                             }
-                            else if (result==1)
-                                {
-                                    return Request.CreateResponse(HttpStatusCode.OK, BLUtilities.Common_BL.Response("Vehicle is already assigned to the driver."));
-                                }
+                            else if (result == 1)
+                            {
+                                return Request.CreateResponse(HttpStatusCode.OK, BLUtilities.Common_BL.Response("Vehicle is already assigned to the driver."));
+                            }
+                            else if (result == 2)
+                            {
+                                return Request.CreateResponse(HttpStatusCode.OK, BLUtilities.Common_BL.Response("Driver is not mapped with  user"));
+                            }
                             else
                                 {
                                     return Request.CreateResponse(HttpStatusCode.OK, BLUtilities.Common_BL.Response("Records not found."));
                                 }
-                        }
+                            }
                             else
                             {
                                 return Request.CreateResponse(HttpStatusCode.Unauthorized, BLUtilities.Common_BL.Response("Records not updated."));

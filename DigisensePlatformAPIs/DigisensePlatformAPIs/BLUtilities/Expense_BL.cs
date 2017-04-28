@@ -142,7 +142,7 @@ namespace DigisensePlatformAPIs.BLUtilities
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
                     ExpenseCategoryResponse obj = new ExpenseCategoryResponse();
-                    obj.label = dt.Rows[i]["expense_type"].ToString();
+                    obj.label = dt.Rows[i]["usp_mobileapi_trip_category_new"].ToString();
                     // string customColumns = dt.Columns[i].ColumnName.ToString().ToLower().CustomClassPropertyName();
                     //if (Convert.ToString(dt.Rows[0][icount]) != null)
                     //{

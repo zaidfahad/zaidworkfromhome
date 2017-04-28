@@ -174,9 +174,11 @@ namespace DigisensePlatformAPIs.DBUtilities
                 oParameters[10] = objDriver.benchmarkFE;
                 oParameters[11] = objDriver.benchmarkDistance;
            
-                connection = DBConnection.GetConnection(Convert.ToInt16(buinessId));
-               // isCreated = Convert.ToString(NpgsqlHelper.ExecuteScalar(connection, "usp_mobileapi_insert_driver_details", oParameters));
-                isCreated = Convert.ToString(NpgsqlHelper.ExecuteScalar(connection, "usp_mobileapi_insert_driver_details_validation", oParameters));
+                connection = DBConnection.GetConnection(Convert.ToInt16(buinessId)); 
+
+                 // isCreated = Convert.ToString(NpgsqlHelper.ExecuteScalar(connection, "usp_mobileapi_insert_driver_details", oParameters));
+                 //isCreated = Convert.ToString(NpgsqlHelper.ExecuteScalar(connection, "usp_mobileapi_insert_driver_details_validation", oParameters));
+                isCreated = Convert.ToString(NpgsqlHelper.ExecuteScalar(connection, "usp_mobileapi_insert_driver_details", oParameters));
             }
             catch (Exception ex)
             {
@@ -223,8 +225,10 @@ namespace DigisensePlatformAPIs.DBUtilities
                 oNpgsqlParameter[11] = new NpgsqlParameter("username", NpgsqlDbType.Text);
 
                 connection = DBConnection.GetConnection(Convert.ToInt16(buinessId));
-                isCreated = Convert.ToString(NpgsqlHelper.ExecuteScalar(connection, "usp_mobileapi_update_driver_details_validation", oParameters));
-               // isCreated = Convert.ToString(NpgsqlHelper.ExecuteScalar(connection,"usp_mobileapi_update_driver_details_validation", oParameters, oNpgsqlParameter));
+               // isCreated = Convert.ToString(NpgsqlHelper.ExecuteScalar(connection, "usp_mobileapi_update_driver_details_validation", oParameters));
+                isCreated = Convert.ToString(NpgsqlHelper.ExecuteScalar(connection, "usp_mobileapi_update_driver_details", oParameters));
+
+                // isCreated = Convert.ToString(NpgsqlHelper.ExecuteScalar(connection,"usp_mobileapi_update_driver_details_validation", oParameters, oNpgsqlParameter));
             }
             catch (Exception ex)
             {

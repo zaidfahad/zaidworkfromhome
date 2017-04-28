@@ -55,7 +55,7 @@ namespace DigisensePlatformAPIs.Models
         [StringLength(15, MinimumLength = 1, ErrorMessage = "Please enter correct username")]
         public string username { get; set; }
         [Required]
-        [StringLength(10, MinimumLength = 10, ErrorMessage = "Please enter correct phone number")]
+
         [RegularExpression(@"^(\d{10})$", ErrorMessage = "Please enter correct phone number")]
         public string phonenumber { get; set; }
         [RegularExpression(@"^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$", ErrorMessage = "Please enter correct email address")]

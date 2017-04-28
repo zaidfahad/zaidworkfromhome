@@ -24,10 +24,10 @@ namespace DigisensePlatformAPIs.Controllers
             System.Net.Http.Headers.HttpRequestHeaders headers = this.Request.Headers;
             string token = string.Empty;
             string apikey = string.Empty;
-           
+
             try
             {
-                
+
                 if (headers.Contains("token"))
                 {
                     if (headers.GetValues("token") != null && Convert.ToString(headers.GetValues("token")) != "")
@@ -73,7 +73,7 @@ namespace DigisensePlatformAPIs.Controllers
                                 RoleID = Convert.ToInt16(dtLoginInfo.Rows[0]["RoleID"]);
                                 BusinessType = Convert.ToInt16(dtLoginInfo.Rows[0]["BusinessType"]);
                             }
-                                return Request.CreateResponse(HttpStatusCode.OK, BLUtilities.Report_BL.ReportSummaryPlatformMTBD());
+                            return Request.CreateResponse(HttpStatusCode.OK, BLUtilities.Report_BL.ReportSummaryPlatformMTBD());
                         }
                         else
                         {
@@ -402,9 +402,6 @@ namespace DigisensePlatformAPIs.Controllers
         #endregion
 
         #region   api/report/platform/mtbd/vehiclemovement/speeddata/{vehicleRegNo} 8.03 Periority 2.09
-        /*
-        /report/platform/mtbd/vehiclemovement/speeddata/{vehicleRegNo}
-        */
         [HttpGet]
         [Route("api/report/platform/mtbd/vehiclemovement/speeddata/{vehicleRegNo}")]
         public HttpResponseMessage PlatformVehilceMovementSpeedData(string vehicleRegNo, string startDate, string endDate)
@@ -527,9 +524,6 @@ namespace DigisensePlatformAPIs.Controllers
         #endregion
 
         #region /report/platform/mtbd/vehiclemovement/enginerpm/{vehicleRegNo} 8.03 Periority 2.09
-        /*
-        GET /report/platform/mtbd/vehiclemovement/enginerpm/{vehicleRegNo}
-        */
         [HttpGet]
         [Route("api/report/platform/mtbd/vehiclemovement/enginerpm/{vehicleRegNo}")]
         public HttpResponseMessage VehilceMoevementEngineRpm(string vehicleRegNo, string startDate, string endDate)
@@ -651,7 +645,7 @@ namespace DigisensePlatformAPIs.Controllers
             }
         }
         #endregion
-
+        
         #region /report/platform/mtbd/vehiclemovement/vehiclemovementsummary/{vehicleRegNo} 8.03 Periority 2.09
         /*
         /report/platform/mtbd/vehiclemovement/vehiclemovementsummary/{vehicleRegNo}
@@ -779,9 +773,7 @@ namespace DigisensePlatformAPIs.Controllers
         #endregion
 
         #region GET /report/platform/mtbd/vehiclemovement/vehiclemovementreport/{vehicleRegNo}
-        /*
-        GET /report/platform/mtbd/vehiclemovement/vehiclemovementreport/{vehicleRegNo
-        */
+
         [HttpGet]
         [Route("api/report/platform/mtbd/vehiclemovement/vehiclemovementreport/{vehicleRegNo}")]
         public HttpResponseMessage VehilceMovementReport(string vehicleRegNo, string startDate, string endDate)
@@ -982,7 +974,7 @@ namespace DigisensePlatformAPIs.Controllers
                                 BusinessType = Convert.ToInt16(dtLoginInfo.Rows[0]["BusinessType"]);
                             }
 
-                            dtDetails = DBUtilities.ReportRepository.VehicleUsage(username, BusinessType,vehicleRegNo,_startDate,_endDate);
+                            dtDetails = DBUtilities.ReportRepository.VehicleUsage(username, BusinessType, vehicleRegNo, _startDate, _endDate);
                             if (dtDetails.Rows.Count > 0)
                             {
 
@@ -1104,7 +1096,7 @@ namespace DigisensePlatformAPIs.Controllers
 
                             dsDetails = DBUtilities.ReportRepository.VehicleAlerts(username, BusinessType, vehicleRegNo, _startDate, _endDate);
                             bool check = false;
-                            for(int icount = 0; icount < dsDetails.Tables.Count; icount++)
+                            for (int icount = 0; icount < dsDetails.Tables.Count; icount++)
                             {
                                 if (dsDetails.Tables[icount].Rows.Count > 0)
                                 {
@@ -1148,9 +1140,7 @@ namespace DigisensePlatformAPIs.Controllers
         #endregion
 
         #region GET /report/platform/mtbd/alerts/violation/{vehicleRegNo}
-        /*
-        GET /report/platform/mtbd/alerts/violation/{vehicleRegNo}
-        */
+
         [HttpGet]
         [Route("api/report/platform/mtbd/alerts/violation/{vehicleRegNo}")]
         public HttpResponseMessage AlertsViolation(string vehicleRegNo, string startDate, string endDate)
@@ -1231,9 +1221,9 @@ namespace DigisensePlatformAPIs.Controllers
                                 BusinessType = Convert.ToInt16(dtLoginInfo.Rows[0]["BusinessType"]);
                             }
 
-                            dsDetails = DBUtilities.ReportRepository.AlertsViolation(username, BusinessType,vehicleRegNo,_startDate,_endDate);
+                            dsDetails = DBUtilities.ReportRepository.AlertsViolation(username, BusinessType, vehicleRegNo, _startDate, _endDate);
                             bool check = false;
-                            for(int icount=0;icount< dsDetails.Tables.Count; icount++)
+                            for (int icount = 0; icount < dsDetails.Tables.Count; icount++)
                             {
                                 if (dsDetails.Tables[icount].Rows.Count > 0)
                                 {
@@ -1358,7 +1348,7 @@ namespace DigisensePlatformAPIs.Controllers
                                 BusinessType = Convert.ToInt16(dtLoginInfo.Rows[0]["BusinessType"]);
                             }
 
-                            dtDetails = DBUtilities.ReportRepository.AlertsSummary(username, BusinessType,vehicleRegNo,_startDate,_endDate);
+                            dtDetails = DBUtilities.ReportRepository.AlertsSummary(username, BusinessType, vehicleRegNo, _startDate, _endDate);
                             if (dtDetails.Rows.Count > 0)
                             {
 
@@ -1480,7 +1470,7 @@ namespace DigisensePlatformAPIs.Controllers
                                 BusinessType = Convert.ToInt16(dtLoginInfo.Rows[0]["BusinessType"]);
                             }
 
-                            dtDetails = DBUtilities.ReportRepository.VehicleHealthSummary(username, BusinessType,vehicleRegNo,_startDate,_endDate);
+                            dtDetails = DBUtilities.ReportRepository.VehicleHealthSummary(username, BusinessType, vehicleRegNo, _startDate, _endDate);
                             if (dtDetails.Rows.Count > 0)
                             {
 
@@ -1520,6 +1510,128 @@ namespace DigisensePlatformAPIs.Controllers
         }
         #endregion
 
+        #region GET /report/platform/mtbd/delivery/vehicleusagesummary/{vehicleRegNo} 
+        [Route("api/report/platform/mtbd/delivery/vehicleusagesummary/{vehicleRegNo}")]
+        [HttpGet]
+        public HttpResponseMessage VehicleUsageSummary(string vehicleRegNo, string startDate, string endDate)
+        {
+            System.Net.Http.Headers.HttpRequestHeaders headers = this.Request.Headers;
+            string token = string.Empty;
+            string apikey = string.Empty;
+            DateTime _startDate = new DateTime();
+            DateTime _endDate = new DateTime();
+            try
+            {
+                if (headers.Contains("token"))
+                {
+                    if (headers.GetValues("token") != null && Convert.ToString(headers.GetValues("token")) != "")
+                    {
+                        token = headers.GetValues("token").First();
+                    }
+                }
+                if (headers.Contains("apikey"))
+                {
+                    if (headers.GetValues("apikey") != null && Convert.ToString(headers.GetValues("apikey")) != "")
+                    {
+                        apikey = headers.GetValues("apikey").First();
+                    }
+                }
+                var inputValidation = Common.BuildDateTimeFromYAFormatV1(startDate);
+                if (!inputValidation.Item1)
+                {
+                    return Request.CreateResponse(HttpStatusCode.BadRequest, BLUtilities.Common_BL.Response(inputValidation.Item2));
+                }
+                else
+                {
+                    _startDate = inputValidation.Item3;
+                }
+                inputValidation = Common.BuildDateTimeFromYAFormatV1(endDate);
+                if (!inputValidation.Item1)
+                {
+                    return Request.CreateResponse(HttpStatusCode.BadRequest, BLUtilities.Common_BL.Response(inputValidation.Item2));
+                }
+                else
+                {
+                    _endDate = inputValidation.Item3;
+                }
+                var inputValidationCompare = Common.DateCompareV1(_startDate, _endDate);
+                if (!inputValidationCompare.Item1)
+                {
+                    return Request.CreateResponse(HttpStatusCode.BadRequest, BLUtilities.Common_BL.Response(inputValidationCompare.Item2));
+                }
+                if (ModelState.IsValid)
+                {
+                    if (token != "")
+                    {
+                        bool validateToken = false;
+                        string username = string.Empty;
+                        string userid = string.Empty;
+
+                        DataTable dtTkenData = DBUtilities.LoginRepository.TokenValidation(token, 5);
+
+                        if (dtTkenData.Rows.Count > 0)
+                        {
+                            userid = Convert.ToString(dtTkenData.Rows[0]["_userid"]);
+                            username = Convert.ToString(dtTkenData.Rows[0]["_username"]);
+                            validateToken = Convert.ToBoolean(dtTkenData.Rows[0]["_validation"]);
+                        }
+
+
+                        if (validateToken)
+                        {
+
+                            DataTable dtDetails = new DataTable();
+                            DataTable dtLoginInfo = DBUtilities.LoginRepository.DigiSMALoginInfo(username, 5);
+
+                            int RoleID = 0;
+                            int BusinessType = 0;
+                            if (dtLoginInfo.Rows.Count > 0)
+                            {
+                                RoleID = Convert.ToInt16(dtLoginInfo.Rows[0]["RoleID"]);
+                                BusinessType = Convert.ToInt16(dtLoginInfo.Rows[0]["BusinessType"]);
+                            }
+
+                            dtDetails = DBUtilities.ReportRepository.VehicleUsageSummary(username, BusinessType, vehicleRegNo, _startDate, _endDate);
+                            if (dtDetails.Rows.Count > 0)
+                            {
+
+                                return Request.CreateResponse(HttpStatusCode.OK, BLUtilities.Report_BL.VehicleReportSummary(dtDetails));
+                            }
+                            else
+                            {
+                                return Request.CreateResponse(HttpStatusCode.OK, BLUtilities.Common_BL.Response("Records not found."));
+                            }
+
+
+                        }
+                        else
+                        {
+                            return Request.CreateResponse(HttpStatusCode.Unauthorized, BLUtilities.Common_BL.Response("Invalid Token."));
+
+                        }
+                    }
+                    else
+                    {
+                        return Request.CreateResponse(HttpStatusCode.BadRequest, BLUtilities.Common_BL.Response("Invalid Token."));
+
+                    }
+                }
+                else
+                {
+                    return Request.CreateErrorResponse(HttpStatusCode.OK, ModelState);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex.Message);
+                return Request.CreateResponse(HttpStatusCode.BadRequest, BLUtilities.Common_BL.Response(ex.Message));
+
+            }
+        }
+
+        #endregion
+        
         #endregion
 
         #region Pending swagger 2.0 added some new also need to structures of that also
@@ -1621,103 +1733,6 @@ namespace DigisensePlatformAPIs.Controllers
 
             }
 
-        }
-
-        #endregion
-       
-        //Need to change 
-        #region GET /report/platform/mtbd/delivery/vehicleusagesummary/{vehicleRegNo} 
-        [Route("api/report/platform/mtbd/delivery/vehicleusagesummary/{vehicleRegNo}")]
-        public HttpResponseMessage VehicleUsageSummary(string vehicleRegNo, string startDate, string endDate)
-        {
-            System.Net.Http.Headers.HttpRequestHeaders headers = this.Request.Headers;
-            string token = string.Empty;
-            string apikey = string.Empty;
-            try
-            {
-                if (headers.Contains("token"))
-                {
-                    if (headers.GetValues("token") != null && Convert.ToString(headers.GetValues("token")) != "")
-                    {
-                        token = headers.GetValues("token").First();
-                    }
-                }
-                if (headers.Contains("apikey"))
-                {
-                    if (headers.GetValues("apikey") != null && Convert.ToString(headers.GetValues("apikey")) != "")
-                    {
-                        apikey = headers.GetValues("apikey").First();
-                    }
-                }
-                if (ModelState.IsValid)
-                {
-                    if (token != "")
-                    {
-                        bool validateToken = false;
-                        string username = string.Empty;
-                        string userid = string.Empty;
-
-                        DataTable dtTkenData = DBUtilities.LoginRepository.TokenValidation(token, 5);
-
-                        if (dtTkenData.Rows.Count > 0)
-                        {
-                            userid = Convert.ToString(dtTkenData.Rows[0]["_userid"]);
-                            username = Convert.ToString(dtTkenData.Rows[0]["_username"]);
-                            validateToken = Convert.ToBoolean(dtTkenData.Rows[0]["_validation"]);
-                        }
-
-
-                        if (validateToken)
-                        {
-
-                            DataTable dtDetails = new DataTable();
-                            DataTable dtLoginInfo = DBUtilities.LoginRepository.DigiSMALoginInfo(username, 5);
-
-                            int RoleID = 0;
-                            int BusinessType = 0;
-                            if (dtLoginInfo.Rows.Count > 0)
-                            {
-                                RoleID = Convert.ToInt16(dtLoginInfo.Rows[0]["RoleID"]);
-                                BusinessType = Convert.ToInt16(dtLoginInfo.Rows[0]["BusinessType"]);
-                            }
-
-                            dtDetails = DBUtilities.ReportRepository.VehicleUsageSummary(username, BusinessType);
-                            if (dtDetails.Rows.Count > 0)
-                            {
-
-                                return Request.CreateResponse(HttpStatusCode.OK, BLUtilities.Report_BL.VehicleReportSummary(dtDetails));
-                            }
-                            else
-                            {
-                                return Request.CreateResponse(HttpStatusCode.OK, BLUtilities.Common_BL.Response("Records not found."));
-                            }
-
-
-                        }
-                        else
-                        {
-                            return Request.CreateResponse(HttpStatusCode.Unauthorized, BLUtilities.Common_BL.Response("Invalid Token."));
-
-                        }
-                    }
-                    else
-                    {
-                        return Request.CreateResponse(HttpStatusCode.BadRequest, BLUtilities.Common_BL.Response("Invalid Token."));
-
-                    }
-                }
-                else
-                {
-                    return Request.CreateErrorResponse(HttpStatusCode.OK, ModelState);
-                }
-
-            }
-            catch (Exception ex)
-            {
-                Log.Error(ex.Message);
-                return Request.CreateResponse(HttpStatusCode.BadRequest, BLUtilities.Common_BL.Response(ex.Message));
-
-            }
         }
 
         #endregion
