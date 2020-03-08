@@ -1,0 +1,8 @@
+.tablet .description {
+  font-size: 15;
+}
+
+.tablet .plugin-id,
+.tablet .plugin-description {
+  font-size: 14;
+}

@@ -1,0 +1,57 @@
+ActionBar {
+  background-color: #516a78;
+}
+
+.page-wrapper {
+  background: linear-gradient(to bottom, #67B26F 0%, #4ca2cd 100%);
+}
+
+WrapLayout {
+  margin-bottom: 16;
+}
+
+button {
+  background-color: #6494AA;
+  padding: 8 10;
+  margin: 8 10 8 0;
+  font-size: 14;
+  border-radius: 4;
+  border-width: 1;
+  border-color: #fff;
+}
+
+.button {
+  color: #ffffff;
+}
+
+.button-success {
+  background-color: #51ae8c;
+}
+
+.button-info {
+  background-color: #516a78;
+}
+
+.button-warning {
+  background-color: #f18b34;
+}
+
+.button-error {
+  background-color: #ee664c;
+}
+
+.button-custom {
+  background-color: #6baad8;
+}
+
+.button-custom-alt {
+  background-color: yellowgreen;
+}
+
+.button-custom-font {
+  background-color: #264bcd;
+}
+
+.button-dismiss {
+  background-color: #444
+}

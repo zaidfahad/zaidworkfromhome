@@ -1,0 +1,45 @@
+<ActionBar title="" flat="true">
+  <ActionItem ios.position="left" (tap)="toggleTheMenu()" *ngIf="isIOS">
+    <Label class="mdi-actionitem mdi-menu" [text]="'mdi-hamburger' | fonticon"></Label>
+  </ActionItem>
+  <Label horizontalAlignment="left" class="mdi-actionitem mdi-menu" [text]="'mdi-hamburger' | fonticon" (tap)="toggleTheMenu()" *ngIf="!isIOS"></Label>
+  <Label horizontalAlignment="center" class="semibold" text="Mapping" *ngIf="isIOS"></Label>
+  <ActionItem ios.position="right" (tap)="showPluginInfo()">
+    <Label class="mdi-actionitem mdi-actionitem-right m-r-0" [text]="'mdi-information-outline' | fonticon"></Label>
+  </ActionItem>
+</ActionBar>
+
+<GridLayout class="pageWrapper">
+  <StackLayout class="map-page-wrapper" [class.p-20]="isIOS">
+    <ContentView [@flyInOut]="'in'" height="100%" width="100%" [class.map-wrapper]="isIOS">
+      <Mapbox
+          accessToken="sk.eyJ1IjoiZWRkeXZlcmJydWdnZW4iLCJhIjoia1JpRW82NCJ9.OgnvpsKzB3GJhzyofQNUBw"
+          mapStyle="traffic_day"
+          latitude="51.9280572"
+          longitude="4.4201952"
+          zoomLevel="7"
+          delay="450"
+          showUserLocation="true"
+          hideCompass="false"
+          disableZoom="false"
+          disableRotation="false"
+          disableScroll="false"
+          disableTilt="false"
+          (mapReady)="onMapReady($event)">
+      </Mapbox>
+    </ContentView>
+  </StackLayout>
+
+  <StackLayout [@from-left]="'in'" columns="auto, auto" orientation="horizontal" class="follow">
+    <Label text="Follow me" class="m-r-10" verticalAlignment="center"></Label>
+    <Switch [checked]="following" (checkedChange)="toggleFollowing($event)"></Switch>
+  </StackLayout>
+
+  <FAB
+      [@from-right]="'in'"
+      (tap)="fabTapped()"
+      icon="res://ic_add_white"
+      rippleColor="#f1f1f1"
+      class="fab">
+  </FAB>
+</GridLayout>

@@ -1,0 +1,11 @@
+ng new --collection=@nativescript/schematics --name=my-app --shared 
+
+
+npm install --global @nativescript/schematics
+
+
+ng add @nativescript/schematics
+
+
+
+https://market.nativescript.org/plugins/nativescript-speech-recognition

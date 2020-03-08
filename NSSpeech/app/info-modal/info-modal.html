@@ -1,0 +1,27 @@
+<ActionBar title="Plugins on this page" flat="true">
+  <NavigationButton visibility="collapse"></NavigationButton>
+  <Label horizontalAlignment="center" class="semibold" text="Plugins on this page"></Label>
+  <ActionItem ios.position="right" (tap)="back()">
+    <Label class="mdi-actionitem mdi-actionitem-right m-r-0" [text]="'mdi-close-circle-outline' | fonticon"></Label>
+  </ActionItem>
+</ActionBar>
+
+<StackLayout class="page-wrapper p-20">
+  <ScrollView height="100%">
+    <StackLayout class="transparent-area" style="padding: 0 10 10 10" verticalAlignment="top">
+
+      <Label class="description" [text]="pluginInfo.description" textWrap="true"></Label>
+
+      <StackLayout class="p-10" *ngFor="let plugin of pluginInfo.plugins">
+        <GridLayout rows="auto, auto" columns="*, 60">
+          <Label row="0" col="0" [text]="plugin.name" class="plugin-name"></Label>
+          <Label row="1" col="0" [text]="plugin.id" class="plugin-id"></Label>
+          <Label row="0" rowSpan="2" col="1" [text]="'mdi-open-in-new' | fonticon" class="plugin-url mdi p-5"
+                 horizontalAlignment="right" (tap)="openPluginUrl(plugin)"></Label>
+        </GridLayout>
+        <Label [text]="plugin.description" class="plugin-description" textWrap="true"></Label>
+      </StackLayout>
+
+    </StackLayout>
+  </ScrollView>
+</StackLayout>

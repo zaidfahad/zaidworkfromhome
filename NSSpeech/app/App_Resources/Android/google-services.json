@@ -1,0 +1,71 @@
+{
+  "project_info": {
+    "project_number": "884257917279",
+    "firebase_url": "https://nativescript-pluginshowcase.firebaseio.com",
+    "project_id": "nativescript-pluginshowcase",
+    "storage_bucket": "nativescript-pluginshowcase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:884257917279:android:c9768018536a35ee",
+        "android_client_info": {
+          "package_name": "org.nativescript.pluginshowcase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "884257917279-vbs4jhk63jq398bd9so7pljfgmr7oevr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "org.nativescript.pluginshowcase",
+            "certificate_hash": "86bfaa9359cd32b94a0db4e71381d7f553e29efe"
+          }
+        },
+        {
+          "client_id": "884257917279-vs3adl3idf0suiv8g031ofcrpcuarbdk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "org.nativescript.pluginshowcase",
+            "certificate_hash": "f7e078e5bfcaa18db892f8ccc50a82e1775fb272"
+          }
+        },
+        {
+          "client_id": "884257917279-q55osi2k33jsob5lar9h2noqd1qvkgqg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtmD8Ngtw11IqSVHj9UOW6Pp-AAsGXvgc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "884257917279-tqa19tams3a3o49sa3ekd546ph1qgh8d.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.nativescript.pluginshowcase",
+                "app_store_id": "1281334006"
+              }
+            },
+            {
+              "client_id": "884257917279-q55osi2k33jsob5lar9h2noqd1qvkgqg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

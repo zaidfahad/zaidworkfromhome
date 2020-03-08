@@ -1,0 +1,48 @@
+ActionBar {
+  background-color: rgba(239, 1, 124, 1);
+}
+
+.page-wrapper {
+  background: linear-gradient(to bottom, rgba(255, 93, 177, 1) 0%, rgba(239, 1, 124, 1) 100%);
+}
+
+Label.record-mic {
+  font-size: 40;
+  font-weight: 800;
+  border-radius: 35;
+  border-width: 3;
+  border-color: #fff;
+  width: 70;
+  height: 70;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 190);
+  margin-bottom: 20;
+}
+
+Label.record-mic.recording {
+  border-width: 8;
+  background-color: rgba(255, 255, 255, 120);
+}
+
+Label.record-hint {
+  opacity: 0.7;
+}
+
+Label.recognizedText {
+  font-size: 26;
+  text-align: center;
+}
+
+.tips Label {
+  text-align: center;
+}
+
+.button {
+  padding: 6 12;
+  margin-bottom: 10;
+  font-size: 14;
+  border-radius: 8;
+  border-width: 1;
+  border-color: #fff;
+  color: #ffffff;
+}

@@ -1,0 +1,32 @@
+ActionBar, .pageWrapper {
+  background-color: #f7797d;
+}
+
+.map-page-wrapper {
+  height: 99.95%;
+  background: linear-gradient(to top, #c6ffdd, #fbd786, #f7797d);
+}
+
+.map-wrapper {
+  border-radius: 20;
+  border-color: white;
+  border-width: 1;
+}
+
+.follow {
+  horizontal-align: left;
+  vertical-align: top;
+  border-radius: 16;
+  background-color: #f7797d;
+  margin: 28 0 0 28;
+  padding: 8 13;
+}
+
+.fab {
+  height: 54;
+  width: 54;
+  margin: 28;
+  background-color: #f7797d;
+  horizontal-align: right;
+  vertical-align: bottom;
+}

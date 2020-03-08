@@ -1,0 +1,40 @@
+ActionBar {
+  background-color: #360033;
+}
+
+.page-wrapper {
+  background: linear-gradient(to bottom, #360033 0%, #0b8793 100%);
+}
+
+.description {
+  font-size: 13;
+  font-weight: 600;
+  color: #fff;
+  margin: 20 10 5 10;
+  padding-bottom: 15;
+  border-bottom-width: 1px;
+  border-bottom-color: #eee;
+}
+
+.plugin-name {
+  color: #fff;
+  font-weight: 600;
+}
+
+.plugin-url {
+  font-size: 18;
+}
+
+.plugin-id {
+  color: #fff;
+  font-size: 13;
+  font-style: italic;
+}
+
+.plugin-description {
+  font-size: 13;
+}
+
+Button {
+  font-family: 'Source Sans Pro', SourceSansPro-Regular, system, sans-serif;
+}

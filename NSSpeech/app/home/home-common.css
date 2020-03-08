@@ -1,0 +1,25 @@
+ActionBar {
+  background-color: #e66465;
+}
+
+.page-wrapper {
+  background: linear-gradient(#9198e5, #e66465);
+}
+
+Label {
+  text-align: center;
+}
+
+Label.plugin-count {
+  font-size: 80;
+  padding: 24;
+  margin: 30;
+  font-weight: 800;
+  border-radius: 80;
+  border-width: 7;
+  border-color: #fff;
+  width: 160;
+  height: 160;
+  background-color: rgba(255, 255, 255, 190);
+  vertical-align: center;
+}
